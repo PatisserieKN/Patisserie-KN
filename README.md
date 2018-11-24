@@ -1,3 +1,3 @@
-# README
+# Patisserie KN
 
-[link to docs/features](docs/features.md)
+[listes des features](docs/features.md)
