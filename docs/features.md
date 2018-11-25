@@ -40,6 +40,9 @@ Mentions légales<br />
 Politiques de données personnelles<br />
 Les pages existent, mais sont redirigés vers [**Page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
 
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+Création des pages suscitées :<br />
+
 **Page d'accueil :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
 La page d'accueil est redirigé vers la boutique patisserie<br />
@@ -55,9 +58,36 @@ Ajout d'un carroussel prenant l'ensemble de la page (avant la section des produi
 \- Les promos du moment ? (Black Friday ?)<br />
 \- Les événements du moment ? (Noël / Pacques)<br />
 
+**Boutique :**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+Visuellement, les boutiques patisserie, traiteur et charcuterie auront la même architecture.<br />
+Une boutique est composée de produits. Chaque produit est présenté dans une card.<br />
+Une card est composée d'une photo, d'un nom, et d'un prix.<br />
+Cliquer sur la card redirige vers la page produit.<br />
 
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+La page produit s'ouvre dans une modal.<br />
 
-**Process commande :**<br />
+**Produit / Page produit :**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+Un produit est composé :<br />
+\- Un titre<br />
+\- Une photo<br />
+\- Une description<br />
+\- Un prix<br />
+Un client peut ajouter X produits au panier.<br />
+
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+Un client peut spécifier un nombre de part au produit<br />
+(*Note technique : Quelle solution doit-on utiliser ?<br />
+Solution 1 : Créer une ligne en db pour chaque nombre de part possible du produit (bof) <br />
+Solution 2 : Créer une table spéciale pour les produit ayant cete "option" (eg table entremet) (mouais...)<br />
+Solution 3 : Créer une table option qui ... (c'est flou)<br />
+Solution 4: La réponse D*)<br />
+
+![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
+Un client peut choisir un thème / une décoration pour le produit.<br />
+Les thèmes sont classés par catégories.<br />
+(*Note technique : Meme question que ci dessus ?*)<br />
 
 [**Template page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
-
