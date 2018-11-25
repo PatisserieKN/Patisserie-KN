@@ -35,9 +35,9 @@ un client doit pouvoir demander un devis<br />
 
 **Footer :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
-CGV
-Mentions légales
-Politiques de données personnelles
+CGV<br />
+Mentions légales<br />
+Politiques de données personnelles<br />
 Les pages existent, mais sont redirigés vers [**Page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
 
 **Page d'accueil :**<br />
