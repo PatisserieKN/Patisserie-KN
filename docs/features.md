@@ -41,7 +41,7 @@ Politiques de données personnelles<br />
 Les pages existent, mais sont redirigés vers [**Page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
-Création des pages suscitées :<br />
+Création des pages suscitées.<br />
 
 **Page d'accueil :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
@@ -83,7 +83,7 @@ Un client peut spécifier un nombre de part au produit<br />
 Solution 1 : Créer une ligne en db pour chaque nombre de part possible du produit (bof) <br />
 Solution 2 : Créer une table spéciale pour les produit ayant cete "option" (eg table entremet) (mouais...)<br />
 Solution 3 : Créer une table option qui ... (c'est flou)<br />
-Solution 4: La réponse D*)<br />
+Solution 4 : La réponse D*)<br />
 
 ![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
 Un client peut choisir un thème / une décoration pour le produit.<br />
