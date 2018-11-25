@@ -45,15 +45,15 @@ Les pages existent, mais sont redirigés vers [**Page en construction**](https:/
 La page d'accueil est redirigé vers la boutique patisserie<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
-Création d'une vrai page d'accueil
+Création d'une vraie page d'accueil
 Ajout d'une section des produits populaires / produits du moment<br />
 
 ![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
-Ajout d'un carroussel prenant l'ensemble de la page (avant la section des produits populaires) et présentant :
-  - Le différentes boutiques (1 slide / boutique ?)
-  - La prise de devis pour les événements (mariage / baptême ?)
-  - Les promos du moment ?
-  - Les événements du moment ? (Noël / Pacques)
+Ajout d'un carroussel prenant l'ensemble de la page (avant la section des produits populaires) et présentant :<br />
+\- Les différentes boutiques (1 slide / boutique ?)<br />
+\- La prise de devis pour les événements (mariage / baptême ?)<br />
+\- Les promos du moment ? (Black Friday ?)<br />
+\- Les événements du moment ? (Noël / Pacques)<br />
 
 
 
