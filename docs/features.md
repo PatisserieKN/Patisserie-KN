@@ -3,9 +3,6 @@
 ## Ce document regroupe l'ensemble des features du site
 Il permettra d'établir la liste des stories sur pivotaltracker ainsi que la liste des tests nécessaires.<br />
 
-### Classification des features
-Les features seront classées comme suit : **TBD**<br />
-
 ### Priorisation des features
 ![P5](https://i.goopics.net/LOGOd.jpg) Chaque feature a une note définissant sa priorité dans le projet.<br />
 ![P4](https://i.goopics.net/AmYmw.jpg) Les notes vont de 1 (moins prioritaire) à 5 (plus prioritaire).<br />
@@ -160,8 +157,8 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 \- quantity:integer<br />
 
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
-**Users** : un user peut se connecter via facebook
-**Users** : un user peut se connecter via son email OU son username
+**Users** : un user peut se connecter via facebook<br />
+**Users** : un user peut se connecter via son email OU son username<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 **Products** :<br />
