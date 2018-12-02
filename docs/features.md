@@ -130,10 +130,6 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 **Product_categories** :<br />
 \- title:string<br />
 <br />
-**Quantity_options** :<br />
-\- type:string (exemple: nombre de part / poids / ...)<br />
-\- quantity:integer (unité pour le nombre de part / gr pour le poids ...)<br />
-<br />
 **Carts** :<br />
 \- pas de user_id pour permettre à un visiteur d'avoir un panier. Ou alors un user_id facultatif si c'est possible ?<br />
 <br />
@@ -161,7 +157,7 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 **Products** :<br />
-\- quantity_option_id:references<br /> => un produit a une seule option concernant la quantité<br />
+\- quantity_option_id:references => un produit a une seule option concernant la quantité<br />
 Il faudra aussi changé la facon dont est géré le prix (prix à la part)
 <br />
 **Quantity_options** :<br />
