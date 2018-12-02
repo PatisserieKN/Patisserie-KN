@@ -92,12 +92,12 @@ Les thèmes sont classés par catégories.<br />
 
 **Process de commande :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
-Un visiteur peut ajouter des produits dans un panier sans être connecté.
-Le panier peut contenir plusieurs produits identiques.
-Si un visiteur souhaite passer une commande, il doit se connecter au site.
-Il peut se connecter via facebook ou s'enregistrer (utilisation de devise et omniauth).
-Au moment de passer la commande, le panier est transféré dans une instance order (La différence entre panier et order sera détaillée dans la section DB)
-Le paiement se fait via Stripe.
+Un visiteur peut ajouter des produits dans un panier sans être connecté.<br />
+Le panier peut contenir plusieurs produits identiques.<br />
+Si un visiteur souhaite passer une commande, il doit se connecter au site.<br />
+Il peut se connecter via facebook ou s'enregistrer (utilisation de devise et omniauth).<br />
+Au moment de passer la commande, le panier est transféré dans une instance order (La différence entre panier et order sera détaillée dans la section DB)<br />
+Le paiement se fait via Stripe.<br />
 
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
 Une fois le paiement effectué, le client recoit un email de confirmation.
