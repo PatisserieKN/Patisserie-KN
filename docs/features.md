@@ -48,7 +48,7 @@ Création des pages suscitées.<br />
 La page d'accueil est redirigé vers la boutique patisserie<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
-Création d'une vraie page d'accueil
+Création d'une vraie page d'accueil<br />
 Ajout d'une section des produits populaires / produits du moment<br />
 
 ![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
@@ -89,5 +89,24 @@ Solution 4 : La réponse D*)<br />
 Un client peut choisir un thème / une décoration pour le produit.<br />
 Les thèmes sont classés par catégories.<br />
 (*Note technique : Meme question que ci dessus ?*)<br />
+
+#### B - UX/UI administrateur
+**Header :**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+un admin doit pouvoir revenir à sa page d'accueil en cliquant sur le logo<br />
+un admin doit pouvoir accéder aux différentes boutiques (vue client)<br />
+
+**Navbar à gauche + pages associées:**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+un admin doit pouvoir accéder à la gestion des différentes boutiques (Ajout/edit/suppresion d'un produit, d'une catégorie, ou d'une option)<br />
+un admin doit pouvoir accéder à la page qui liste les commandes (orders/index)<br />
+En cliquant sur une commande il en voit le détail (orders/show). Il doit voir notamment le nom du client, l'adresse, la date de livraison souhaitée, et la liste des produits avec leurs options<br />
+
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+Un admin doit pouvoir accéder à la gestion des opérations commerciales<br />
+Les pages de modifications d'un produit particulier ou de détail d'une commande souvrent dans des modals<br />
+
+![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
+un admin doit pouvoir accéder à la gestion des pages facebook et instagram (ajout/edit/suppression de posts)<br />
 
 [**Template page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
