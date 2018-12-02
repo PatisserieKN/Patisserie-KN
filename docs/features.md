@@ -123,9 +123,8 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 **Products** :<br />
 \- title:string<br />
 \- description:text<br />
-\- price:decimal => Le prix est à la part (ou autre quantité de base)<br />
-\- product_category_id:references<br /> => un produit a une seule catégorie
-\- quantity_option_id:references<br /> => un produit a une seule option concernant la quantité
+\- price:decimal<br />
+\- product_category_id:references<br /> => un produit a une seule catégorie<br />
 \- image:j'ai pas l'impression qu'il y est besoin d'une colonne image avec active storage<br />
 <br />
 **Product_categories** :<br />
@@ -161,6 +160,15 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 **Users** : un user peut se connecter via son email OU son username<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+**Products** :<br />
+\- quantity_option_id:references<br /> => un produit a une seule option concernant la quantité<br />
+Il faudra aussi changé la facon dont est géré le prix (prix à la part)
+<br />
+**Quantity_options** :<br />
+\- type:string (exemple: nombre de part / poids / ...)<br />
+\- quantity:integer (unité pour le nombre de part / gr pour le poids ...)<br />
+
+![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
 **Products** :<br />
 \- decoration_id:references => Tous les produits ne peuvent pas avoir de décoration, élément facultatif<br />
 
