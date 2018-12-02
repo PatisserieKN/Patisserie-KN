@@ -79,16 +79,10 @@ Un client peut ajouter X produits au panier.<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 Un client peut spécifier un nombre de part au produit<br />
-(*Note technique : Quelle solution doit-on utiliser ?<br />
-Solution 1 : Créer une ligne en db pour chaque nombre de part possible du produit (bof) <br />
-Solution 2 : Créer une table spéciale pour les produit ayant cete "option" (eg table entremet) (mouais...)<br />
-Solution 3 : Créer une table option qui ... (c'est flou)<br />
-Solution 4 : La réponse D*)<br />
 
 ![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
 Un client peut choisir un thème / une décoration pour le produit.<br />
 Les thèmes sont classés par catégories.<br />
-(*Note technique : Meme question que ci dessus ?*)<br />
 
 **Process de commande :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
@@ -123,54 +117,65 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 
 #### C - DataBase tables
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
-Users : configuré par devise<br />
+**Users** : configuré par devise<br />
 \- cart_id:references => un user a un seul panier
-Administrators : configuré par devise<br />
+**Administrators** : configuré par devise<br />
 <br />
-2 tables pour active_storage<br />
+2 tables pour **active_storage** => Toutes les photos seront stockées sur S3<br />
 <br />
-Products :<br />
+**Products** :<br />
 \- title:string<br />
 \- description:text<br />
-\- price:decimal<br />
+\- price:decimal => Le prix est à la part (ou autre quantité de base)<br />
 \- product_category_id:references<br /> => un produit a une seule catégorie
 \- quantity_option_id:references<br /> => un produit a une seule option concernant la quantité
 \- image:j'ai pas l'impression qu'il y est besoin d'une colonne image avec active storage<br />
 <br />
-Product_categories :<br />
+**Product_categories** :<br />
 \- title:string<br />
 <br />
-Quantity_options :<br />
+**Quantity_options** :<br />
 \- type:string (exemple: nombre de part / poids / ...)<br />
 \- quantity:integer (unité pour le nombre de part / gr pour le poids ...)<br />
 <br />
-Carts :<br />
+**Carts** :<br />
 \- pas de user_id pour permettre à un visiteur d'avoir un panier. Ou alors un user_id facultatif si c'est possible ?<br />
 <br />
-Cart_items :<br />
+**Cart_items** :<br />
 \- cart_id:references<br />
 \- item_id:references<br />
 \- quantity:integer<br />
 <br />
-Orders :<br />
+**Orders** :<br />
 \- user_id:references => Une commande est forcèment liée à un client, et un client peut avoir plusieurs commandes<br />
 \- status_id:references => une commande a un statut <br />
 \- date:datetime => On peut surement utiliser la date générée d'office <br />
 <br />
-Order_status : (Payée / Livrée ...)<br />
+**Order_status** : (Payée / Livrée ...)<br />
 \- name:string <br />
 <br />
-Order_items : Reprend les items du cart<br />
+**Order_items** : Reprend les items du cart<br />
 \- order_id:references<br />
 \- item_id:references<br />
 \- quantity:integer<br />
-<br />
 
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
-User : un user peut se connecter via facebook
-User : un user peut se connecter via son email OU son username
+**Users** : un user peut se connecter via facebook
+**Users** : un user peut se connecter via son email OU son username
 
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+**Products** :<br />
+\- decoration_id:references => Tous les produits ne peuvent pas avoir de décoration, élément facultatif<br />
 
+**Decorations** :<br />
+\- name:string<br />
+\- description:text<br />
+\- image:active_record<br />
+\- price_base:decimal => Le prix de la déco est composée d'une base (figurine ?)<br />
+\- price_variable:decimal => Et varie en fonction du nombre de part (taille de la feuille d'azyme ?)<br />
+
+**Decoration_tags ou Decoration_categories** :<br />
+A voir entre les 2, la différence étant qu'une déco peut avoir plusieurs tags mais une seule catégorie (donc 1..n ou n..n)<br />
 
 
 [**Template page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
