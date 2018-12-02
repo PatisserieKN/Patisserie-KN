@@ -121,4 +121,56 @@ Les pages de modifications d'un produit particulier ou de détail d'une commande
 ![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
 un admin doit pouvoir accéder à la gestion des pages facebook et instagram (ajout/edit/suppression de posts)<br />
 
+#### C - DataBase tables
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+Users : configuré par devise<br />
+\- cart_id:references => un user a un seul panier
+Administrators : configuré par devise<br />
+<br />
+2 tables pour active_storage<br />
+<br />
+Products :<br />
+\- title:string<br />
+\- description:text<br />
+\- price:decimal<br />
+\- product_category_id:references<br /> => un produit a une seule catégorie
+\- quantity_option_id:references<br /> => un produit a une seule option concernant la quantité
+\- image:j'ai pas l'impression qu'il y est besoin d'une colonne image avec active storage<br />
+<br />
+Product_categories :<br />
+\- title:string<br />
+<br />
+Quantity_options :<br />
+\- type:string (exemple: nombre de part / poids / ...)<br />
+\- quantity:integer (unité pour le nombre de part / gr pour le poids ...)<br />
+<br />
+Carts :<br />
+\- pas de user_id pour permettre à un visiteur d'avoir un panier. Ou alors un user_id facultatif si c'est possible ?<br />
+<br />
+Cart_items :<br />
+\- cart_id:references<br />
+\- item_id:references<br />
+\- quantity:integer<br />
+<br />
+Orders :<br />
+\- user_id:references => Une commande est forcèment liée à un client, et un client peut avoir plusieurs commandes<br />
+\- status_id:references => une commande a un statut <br />
+\- date:datetime => On peut surement utiliser la date générée d'office <br />
+<br />
+Order_status : (Payée / Livrée ...)<br />
+\- name:string <br />
+<br />
+Order_items : Reprend les items du cart<br />
+\- order_id:references<br />
+\- item_id:references<br />
+\- quantity:integer<br />
+<br />
+
+![P4](https://i.goopics.net/AmYmw.jpg) :<br />
+User : un user peut se connecter via facebook
+User : un user peut se connecter via son email OU son username
+
+
+
+
 [**Template page en construction**](https://i.goopics.net/w4vQ3.jpg)<br />
