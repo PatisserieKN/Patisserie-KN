@@ -17,6 +17,17 @@ Il permettra d'établir la liste des stories sur pivotaltracker ainsi que la lis
 
 ### Listes des features
 #### A - UX/UI client
+**Habillages du site :**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+Le site a un habillage de base<br />
+
+![P4](https://i.goopics.net/AmYmw.jpg) :<br />
+Le site a un habillage spécial fêtes de fin d'années<br />
+
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+Le site a un habillage spécial Pacques<br />
+Le site a un habillage spécial Toussaint<br />
+
 **Header :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
 un client doit pouvoir revenir à la page d'accueil en cliquant sur le logo<br />
