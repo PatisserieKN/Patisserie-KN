@@ -104,6 +104,26 @@ Le paiement se fait via Stripe.<br />
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
 Une fois le paiement effectué, le client recoit un email de confirmation.
 
+**Demdande de devis :**<br />
+![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+Le client peut faire une demande de devis.<br />
+Il doit fournir les informations suivantes :<br />
+\- Nom<br />
+\- Email<br />
+\- Demande<br />
+<br />
+Doit-on enregistrer le user lors d'une demande de devis ? <br />
+Si oui, il faut demander un mdp => Pas certains de que ce soit top niveau UX<br />
+Ou alors on demande au client d'etre authentifié pour faire une demande de devis<br />
+
+Une fois la demande de devis envoyée, il reçoit un mail de confirmation pour sa demande.<br />
+Puis un autre mail avec le devis quand celui ci a été établi.<br />
+
+![P4](https://i.goopics.net/AmYmw.jpg) :<br />
+La demande de devis s'ouvre dans une modal<br />
+Le client peut retrouver ses demande de devis sur le site<br />
+
+
 #### B - UX/UI administrateur
 **Header :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
@@ -115,6 +135,8 @@ un admin doit pouvoir accéder aux différentes boutiques (vue client)<br />
 un admin doit pouvoir accéder à la gestion des différentes boutiques (Ajout/edit/suppresion d'un produit, d'une catégorie, ou d'une option)<br />
 un admin doit pouvoir accéder à la page qui liste les commandes (orders/index)<br />
 En cliquant sur une commande il en voit le détail (orders/show). Il doit voir notamment le nom du client, l'adresse, la date de livraison souhaitée, et la liste des produits avec leurs options<br />
+un admin doit pouvoir accèder au demande de devis<br />
+un admin doit recevoir un mail quand une nouvelle demande de devis est transmise sur le site<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 Un admin doit pouvoir accéder à la gestion des opérations commerciales<br />
@@ -126,7 +148,8 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 #### C - DataBase tables
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
 **Users** : configuré par devise<br />
-\- cart_id:references => un user a un seul panier
+\- cart_id:references => un user a un seul panier<br />
+\- phone_number:un type spécial pour les numéros de téléphone ? facultatif<br />
 **Administrators** : configuré par devise<br />
 <br />
 2 tables pour **active_storage** => Toutes les photos seront stockées sur S3<br />
@@ -165,11 +188,16 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
 **Users** : un user peut se connecter via facebook<br />
 **Users** : un user peut se connecter via son email OU son username<br />
+<br />
+**Estimates** : (Les devis sont accessibles sur le site si l'utilisateur était authentifié quand il l'a demandé)<br />
+\- user_id:references<br />
+\- title:string<br />
+\- description:text<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 **Products** :<br />
 \- quantity_option_id:references => un produit a une seule option concernant la quantité<br />
-Il faudra aussi changé la facon dont est géré le prix (prix à la part)
+Il faudra aussi changé la facon dont est géré le prix (prix à la part)<br />
 <br />
 **Quantity_options** :<br />
 \- type:string (exemple: nombre de part / poids / ...)<br />
