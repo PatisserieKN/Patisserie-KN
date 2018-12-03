@@ -105,11 +105,12 @@ Le paiement se fait via Stripe.<br />
 Une fois le paiement effectué, le client recoit un email de confirmation.
 
 **Demande de devis :**<br />
-![P5](https://i.goopics.net/LOGOd.jpg) :<br />
+![P4](https://i.goopics.net/AmYmw.jpg) :<br />
 Le client peut faire une demande de devis.<br />
 Il doit fournir les informations suivantes :<br />
 \- Nom<br />
 \- Email<br />
+\- Numero de telephone<br />
 \- Demande<br />
 <br />
 Doit-on enregistrer le user lors d'une demande de devis ? <br />
@@ -119,7 +120,7 @@ Ou alors on demande au client d'etre authentifié pour faire une demande de devi
 Une fois la demande de devis envoyée, il reçoit un mail de confirmation pour sa demande.<br />
 Puis un autre mail avec le devis quand celui ci a été établi.<br />
 
-![P4](https://i.goopics.net/AmYmw.jpg) :<br />
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 La demande de devis s'ouvre dans une modal<br />
 Le client peut retrouver ses demande de devis sur le site<br />
 
@@ -135,7 +136,7 @@ un admin doit pouvoir accéder aux différentes boutiques (vue client)<br />
 un admin doit pouvoir accéder à la gestion des différentes boutiques (Ajout/edit/suppresion d'un produit, d'une catégorie, ou d'une option)<br />
 un admin doit pouvoir accéder à la page qui liste les commandes (orders/index)<br />
 En cliquant sur une commande il en voit le détail (orders/show). Il doit voir notamment le nom du client, l'adresse, la date de livraison souhaitée, et la liste des produits avec leurs options<br />
-un admin doit pouvoir accèder au demande de devis<br />
+un admin doit pouvoir accèder aux demandes de devis<br />
 un admin doit recevoir un mail quand une nouvelle demande de devis est transmise sur le site<br />
 
 ![P3](https://i.goopics.net/7YyYN.jpg) :<br />
@@ -158,7 +159,7 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 \- title:string<br />
 \- description:text<br />
 \- price:decimal<br />
-\- product_category_id:references<br /> => un produit a une seule catégorie<br />
+\- product_category_id:references => un produit a une seule catégorie<br />
 \- image:j'ai pas l'impression qu'il y est besoin d'une colonne image avec active storage<br />
 <br />
 **Product_categories** :<br />
@@ -169,7 +170,7 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 <br />
 **Cart_items** :<br />
 \- cart_id:references<br />
-\- item_id:references<br />
+\- product_id:references<br />
 \- quantity:integer<br />
 <br />
 **Orders** :<br />
@@ -182,7 +183,7 @@ un admin doit pouvoir accéder à la gestion des pages facebook et instagram (aj
 <br />
 **Order_items** : Reprend les items du cart<br />
 \- order_id:references<br />
-\- item_id:references<br />
+\- product_id:references<br />
 \- quantity:integer<br />
 
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
