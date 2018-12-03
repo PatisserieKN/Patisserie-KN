@@ -21,10 +21,10 @@ Il permettra d'établir la liste des stories sur pivotaltracker ainsi que la lis
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
 Le site a un habillage de base<br />
 
-![P4](https://i.goopics.net/AmYmw.jpg) :<br />
+![P3](https://i.goopics.net/7YyYN.jpg) :<br />
 Le site a un habillage spécial fêtes de fin d'années<br />
 
-![P3](https://i.goopics.net/7YyYN.jpg) :<br />
+![P2](https://i.goopics.net/vvZvZ.jpg) :<br />
 Le site a un habillage spécial Pacques<br />
 Le site a un habillage spécial Toussaint<br />
 
