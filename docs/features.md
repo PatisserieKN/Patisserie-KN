@@ -104,7 +104,7 @@ Le paiement se fait via Stripe.<br />
 ![P4](https://i.goopics.net/AmYmw.jpg) :<br />
 Une fois le paiement effectué, le client recoit un email de confirmation.
 
-**Demdande de devis :**<br />
+**Demande de devis :**<br />
 ![P5](https://i.goopics.net/LOGOd.jpg) :<br />
 Le client peut faire une demande de devis.<br />
 Il doit fournir les informations suivantes :<br />
