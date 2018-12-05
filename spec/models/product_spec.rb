@@ -48,4 +48,21 @@ RSpec.describe Product, type: :model do
       expect(product.valid?).to be false
     end
   end
+
+  context 'category' do
+    it 'should be present' do
+      product.category = ' ' * 6
+      expect(product.valid?).to be false
+    end
+
+    it 'should not be too long' do
+      product.category = 'a' * 64
+      expect(product.valid?).to be false
+    end
+
+    it 'should not be too short' do
+      product.category = 'a' * 2
+      expect(product.valid?).to be false
+    end
+  end
 end
