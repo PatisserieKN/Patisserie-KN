@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    description { "MyText" }
+    name { "Cake" }
+    description { "A beautiful cake" }
     price { "9.99" }
-    category { "MyString" }
+    category { "Pastry" }
   end
 end
