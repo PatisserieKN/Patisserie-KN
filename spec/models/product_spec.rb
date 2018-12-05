@@ -41,4 +41,11 @@ RSpec.describe Product, type: :model do
       expect(product.valid?).to be false
     end
   end
+
+  context 'price' do
+    it 'should be present' do
+      product.price = ' '
+      expect(product.valid?).to be false
+    end
+  end
 end
