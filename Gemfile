@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Use Faker for Factory Bot
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
