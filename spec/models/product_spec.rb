@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
-  let(:product) { build(:product) }
+  let(:product) { build(:ramdom_product) }
 
   it 'should be valid' do
     expect(product.valid?).to be true
