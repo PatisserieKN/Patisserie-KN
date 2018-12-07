@@ -63,6 +63,8 @@ group :test do
   # Adds shoulda-matchers
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing'
+  # Adds Faker
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
