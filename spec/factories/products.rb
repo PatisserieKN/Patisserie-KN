@@ -4,6 +4,7 @@ FactoryBot.define do
     description { "A beautiful cake" }
     price { "9.99" }
     category { "Pastry" }
+    cart
 
     factory :ramdom_product do
       name { Faker::Food.fruits }
