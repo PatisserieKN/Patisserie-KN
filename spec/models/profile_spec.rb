@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id           :bigint(8)        not null, primary key
+#  first_name   :string
+#  last_name    :string
+#  phone_number :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  user_id      :bigint(8)
+#
+
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
