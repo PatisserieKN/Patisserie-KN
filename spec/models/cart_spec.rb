@@ -2,16 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
 
-  let(:cart) { build(:cart) }
+  it { is_expected.to have_many(:products) }
 
-  it 'should be valid' do
-    expect(cart.valid?).to be true
+  let(:cart) { create(:cart) }
+  it 'is creatable' do
+    expect{ cart }.to change(Cart, :count).by(1)
   end
 
-  context 'paid' do
-    it 'should not be nil' do
-      cart.paid = nil
-      expect(cart.valid?).to be false
-    end
-  end
 end
