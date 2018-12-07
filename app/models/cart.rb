@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-  belongs_to :cart
+  has_many :products
   validates :paid, inclusion: { in: [true, false] }
 end

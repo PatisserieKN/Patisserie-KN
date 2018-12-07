@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :products
+  belongs_to :cart
   validates :name, presence: true,
                    length: { minimum: 3, maximum: 63 }
 
