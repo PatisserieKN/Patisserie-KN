@@ -65,4 +65,9 @@ RSpec.describe Product, type: :model do
       expect(product.valid?).to be false
     end
   end
+
+  context "Associations" do
+    it { is_expected.to belong_to(:cart)}
+  end
+
 end
