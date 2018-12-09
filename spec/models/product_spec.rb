@@ -21,14 +21,20 @@ RSpec.describe Product, type: :model do
   it { is_expected.to validate_presence_of(:price) }
   it { is_expected.to validate_presence_of(:category) }
 
-  it { is_expected.to validate_length_of(:name).
-                      is_at_least(3).is_at_most(63) }
+  it {
+    is_expected.to validate_length_of(:name).
+      is_at_least(3).is_at_most(63)
+  }
 
-  it { is_expected.to validate_length_of(:description).
-                      is_at_least(3).is_at_most(1023) }
+  it {
+    is_expected.to validate_length_of(:description).
+      is_at_least(3).is_at_most(1023)
+  }
 
-  it { is_expected.to validate_length_of(:category).
-                      is_at_least(3).is_at_most(63) }
+  it {
+    is_expected.to validate_length_of(:category).
+      is_at_least(3).is_at_most(63)
+  }
 
   let(:product) { create(:product) }
   it 'is creatable' do
