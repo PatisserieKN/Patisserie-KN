@@ -10,6 +10,7 @@
 
 FactoryBot.define do
   factory :cart do
+    user
     paid { false }
   end
 end
