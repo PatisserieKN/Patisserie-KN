@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "linea-arrows-10";
-  src:url("fonts/linea-arrows-10.eot");
-  src:url("fonts/linea-arrows-10.eot?#iefix") format("embedded-opentype"),
-    url("fonts/linea-arrows-10.woff") format("woff"),
-    url("fonts/linea-arrows-10.ttf") format("truetype"),
-    url("fonts/linea-arrows-10.svg#linea-arrows-10") format("svg");
+  src:asset-url("linea/arrows/fonts/linea-arrows-10.eot");
+  src:asset-url("linea/arrows/fonts/linea-arrows-10.eot?#iefix") format("embedded-opentype"),
+    asset-url("linea/arrows/fonts/linea-arrows-10.woff") format("woff"),
+    asset-url("linea/arrows/fonts/linea-arrows-10.ttf") format("truetype"),
+    asset-url("linea/arrows/fonts/linea-arrows-10.svg#linea-arrows-10") format("svg");
   font-weight: normal;
   font-style: normal;
 
