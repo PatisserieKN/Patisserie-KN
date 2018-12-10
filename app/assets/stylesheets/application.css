@@ -18,10 +18,10 @@
  *= require animate/animate.min
  *= require fancybox/css/jquery.fancybox.min
  *= require boomerang.min
- *= require fonts/line-icons/line-icons
- *= require fonts/line-icons-pro/line-icons-pro
- *= require fonts/linea/arrows/linea-icons
- *= require fonts/linea/basic/linea-icons
- *= require fonts/linea/ecommerce/linea-icons
- *= require fonts/linea/software/linea-icons
+ *= require line-icons/line-icons
+ *= require line-icons-pro/line-icons-pro
+ *= require linea/arrows/linea-icons
+ *= require linea/basic/linea-icons
+ *= require linea/ecommerce/linea-icons
+ *= require linea/software/linea-icons
  */
