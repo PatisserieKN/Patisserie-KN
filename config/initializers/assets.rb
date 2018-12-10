@@ -11,7 +11,7 @@ Rails.application.config.assets.paths << Rails.root.join('vendor')
 Rails.application.config.assets.paths << Rails.root.join('lib', 'fonts')
 Rails.application.config.assets.paths << Rails.root.join('fonts')
 
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|jpg)$/
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
