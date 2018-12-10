@@ -10,5 +10,7 @@
 
 Rails.application.routes.draw do
   root 'static_pages#index'
+  get '/template1', to: 'static_pages#template1'
+  get '/template2', to: 'static_pages#template2'
   devise_for :users
 end
