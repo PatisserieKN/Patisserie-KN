@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .mega-dropdown-col.mega-dropdown-col-cover.mega-dropdown-col-cover--left.col-lg-5.d-none.d-lg-block.d-xl-block{
-	background-image: url(img-14-1000x900.jpg);
+	background-image: asset_url(img-14-1000x900);
 	background-position: center center;
 }
 .holder-item.has-bg-cover.bg-size-cover{
-	background-image: url(img-41.jpg); 
+	background-image: asset_url(img-41); 
 	background-position: left center;
 }
 .slice.has-bg-cover.bg-size-cover{
-	background-image: url(img-36.jpg); 
+	background-image: asset_url(img-36); 
 	background-position: center center;
 }
