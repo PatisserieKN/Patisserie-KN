@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %>
     <% flash.each do |type, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
     <% end %>
