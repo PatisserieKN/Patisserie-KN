@@ -1,3 +1,15 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mega-dropdown-col.mega-dropdown-col-cover.mega-dropdown-col-cover--left.col-lg-5.d-none.d-lg-block.d-xl-block{
+	background-image: asset-url(img-14-1000x900);
+	background-position: center center;
+}
+.holder-item.has-bg-cover.bg-size-cover{
+	background-image: asset-url(img-41); 
+	background-position: left center;
+}
+.slice.has-bg-cover.bg-size-cover{
+	background-image: asset-url(img-36); 
+	background-position: center center;
+}

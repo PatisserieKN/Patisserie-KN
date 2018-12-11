@@ -47,13 +47,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :user_name => ENV['USERNAME_MAILER'],
-  :password => ENV['PASSWORD_MAILER'],
-  :address => 'smtp.mailtrap.io',
-  :domain => 'smtp.mailtrap.io',
-  :port => '2525',
-  :authentication => :cram_md5
-}
+    user_name: ENV['USERNAME_MAILER'],
+    password: ENV['PASSWORD_MAILER'],
+    address: 'smtp.mailtrap.io',
+    domain: 'smtp.mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5
+  }
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.assets.prefix = "/dev-assets"
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
