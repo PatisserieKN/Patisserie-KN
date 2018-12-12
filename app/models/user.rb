@@ -22,6 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
+  devise :omniauthable, omniauth_providers: %i[facebook]
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
   has_one :cart
