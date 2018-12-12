@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/template1', to: 'static_pages#template1'
   get '/template2', to: 'static_pages#template2'
-  devise_for :users, controllers: { registrations: 'users/registrations' },
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: "client",
                      path_names: { sign_in: 'connexion',
                                    sign_out: 'deconnexion',
