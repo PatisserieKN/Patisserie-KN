@@ -12,5 +12,24 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/template1', to: 'static_pages#template1'
   get '/template2', to: 'static_pages#template2'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' },
+                     path: "client",
+                     path_names: { sign_in: 'connexion',
+                                   sign_out: 'deconnexion',
+                                   sign_up: 'inscription' }
+
+  # Il semblerait que la méthode ci dessous ne fonctionne pas avec des controllers customs ?
+  # devise_scope :user do
+  #   get 'connexion', to: 'devise/sessions#new', as: :new_user_session
+  #   post 'connexion', to: 'devise/sessions#create', as: :user_session
+  #   delete 'deconnexion', to: 'devise/sessions#destroy', as: :destroy_user_session
+  #
+  #   get 'inscription', to: 'devise/registrations#new', as: :new_user_registration
+  #   post 'inscription', to: 'devise/registrations#create'
+  #   get 'profil', to: 'devise/registrations#edit', as: :edit_user_registration
+  #   patch 'profil', to: 'devise/registrations#update', as: :user_registration
+  #   put 'profil', to: 'devise/registrations#update'
+  #   delete 'users', to: 'devise/registrations#destroy' # default route
+  #   get '/users/cancel', to: 'devise/registrations#cancel' # default route
+  # end
 end
