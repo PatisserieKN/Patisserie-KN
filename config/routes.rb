@@ -12,12 +12,11 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/template1', to: 'static_pages#template1'
   get '/template2', to: 'static_pages#template2'
-  devise_for :users, controllers: { registrations: 'users/registrations'},
+  devise_for :users, controllers: { registrations: 'users/registrations' },
                      path: "client",
                      path_names: { sign_in: 'connexion',
                                    sign_out: 'deconnexion',
                                    sign_up: 'inscription' }
-
 
   # Il semblerait que la méthode ci dessous ne fonctionne pas avec des controllers customs ?
   # devise_scope :user do
