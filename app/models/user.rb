@@ -23,5 +23,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   has_one :profile
+  accepts_nested_attributes_for :profile
   has_one :cart
 end
