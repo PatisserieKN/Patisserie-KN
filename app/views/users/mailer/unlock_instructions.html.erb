@@ -1,0 +1,7 @@
+<p>Bonjour <%= @resource.email %>!</p>
+
+<p>Votre compte à été bloqué suite à de trop nombreuses tentatives de connexion infructueuses.</p>
+
+<p>Cliquez sur le bouton ci-dessous pour débloquer votre compte:</p>
+
+<p><%= link_to 'Débloquer mon compte', unlock_url(@resource, unlock_token: @token), class: "btn btn-styled btn-lg btn-block btn-base-1 mt-4" %></p>

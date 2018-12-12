@@ -1,0 +1,33 @@
+<section class="slice-lg has-bg-cover bg-size-cover">
+	<div class="container">
+	    <div class="row justify-content-center cols-xs-space">
+	        <div class="col-lg-4">
+	            <div class="form-card form-card--style-2 z-depth-2-top">
+	                <div class="form-header text-center">
+	                    <div class="form-header-icon">
+	                        <i class="icon ion-ios-mail"></i>
+	                    </div>
+	                </div>
+	                <div class="form-body">
+	                    <div class="text-center px-2">
+	                        <h4 class="heading heading-4 strong-400 mb-4">Renvoyer l'email de confirmation</h4>
+	                    </div>
+	                    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }, class: "form-default") do |f| %>
+  						<%= devise_error_messages! %>
+  						<div class="row">
+	                        <div class="col-12">
+	                            <div class="form-group">
+	                           		<%= f.label :email %><br />
+    								<%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control form-control-lg" %>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <%= f.submit "Renvoyer l'email de confirmation", class: "btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
+  						<% end %>
+  						<%= render "users/shared/links" %>
+	                </div>  
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</section>
