@@ -11,3 +11,7 @@
 <% if user_signed_in? %>
 <p>Admin ? => <%= current_user.admin %></p>
 <% end %>
+<% @users = User.all %>
+<% @users.each do |f| %>
+<%= f.email %><br>
+<% end %>
