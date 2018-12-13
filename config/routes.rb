@@ -9,6 +9,8 @@
 #      rails_direct_uploads POST /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  get '/patisserie', to: 'products#index'
+  resources :products, except: :index
   root 'static_pages#index'
   get '/template1', to: 'static_pages#template1'
   get '/template2', to: 'static_pages#template2'
