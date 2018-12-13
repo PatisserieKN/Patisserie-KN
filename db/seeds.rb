@@ -22,3 +22,7 @@ client.password_confirmation = 'password'
 client.admin = false
 client.skip_confirmation!
 client.save!
+
+cart = Cart.new
+cart.user_id = User.last.id
+cart.save!
