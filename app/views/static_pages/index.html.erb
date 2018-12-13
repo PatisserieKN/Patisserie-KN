@@ -3,7 +3,7 @@
 <br />
 
 <% if user_signed_in? %>
-  <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %>
+  <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-styled btn-base-4 mt-4" %>
 <% end %>
 
 <div>

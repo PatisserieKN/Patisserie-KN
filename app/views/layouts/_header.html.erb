@@ -3,16 +3,17 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg    navbar-light bg-default ">
     <div class="container navbar-container">
+
       <!-- Brand/Logo -->
       <%= link_to image_tag("logo.png", alt: "Patisserie KN"), root_path, class: "navbar-brand navbar-brand--centered" %>
 
       <div class="d-inline-block">
-          <!-- Navbar toggler  -->
-          <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-              </span>
-          </button>
+        <!-- Navbar toggler  -->
+        <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
       </div>
 
       <div class="collapse navbar-collapse align-items-center justify-content-between" id="navbar_main">
@@ -67,7 +68,7 @@
 
                         <div class="form-group">
                           <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
-                            <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
+                          <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
                         </div>
                         <div class="form-group mb-0">
                           <div class=" row align-items-center">
