@@ -19,22 +19,16 @@
         <!-- Navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item dropdown megamenu">
-            <a class="nav-link" href="../../index.html">
-              Patisserie
-            </a>
+            <%= link_to "Patisserie", patisserie_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown megamenu">
-            <a class="nav-link" href="../../index.html">
-              Traiteur
-            </a>
+            <%= link_to "Traiteur", '#', class: "nav-link" %>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-lg-auto">
           <li class="nav-item">
-            <a href="../../documentation/getting-started/introduction.html" class="nav-link">
-              Demande de devis
-            </a>
+            <%= link_to "demande de devis", '#', class: "nav-link" %>
           </li>
 
           <!-- Login -->
@@ -44,15 +38,12 @@
             </a>
 
             <% if user_signed_in? %>
-              <%= link_to "  Profil  ", edit_user_registration_path %>
-              <%= link_to "  Se déconnecter  ", destroy_user_session_path, method: :delete %>
-            <% else %>
               <ul class="dropdown-menu dropdown-menu--right dropdown-form">
                 <li>
                   <div class="dropdown-form-inner">
                     <div class="row align-items-center b-xs-bottom">
                       <div class="col-7">
-                        <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Se connecter</h3>
+                        <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Mon compte</h3>
                       </div>
                       <div class="col-5">
                         <%= link_to "<i class='fas fa-times'></i>".html_safe, root_path, class: "btn-close-dropdown" %>
@@ -60,29 +51,24 @@
                     </div>
 
                     <div class="py-4">
-                      <%= form_for(:user, url: session_path(:user), class: "form-default") do |f| %>
-                        <div class="form-group">
-                          <%= f.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
-                        </div>
 
-                        <div class="form-group">
-                          <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
-                            <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
-                        </div>
+                        <%= link_to "demande de devis", '#', class: "" %>
+
+                      <%= link_to "test", root_path %>
+
                         <div class="form-group mb-0">
                           <div class=" row align-items-center">
                             <div class="col-6">
                               <div class="checkbox">
-                                <%= f.check_box :remember_me %>
-                                <%= f.label :remember_me, "Se souvenir de moi" %>
+
                               </div>
                             </div>
                             <div class="col-6 text-right">
-                              <%= f.submit "Se connecter", class: "btn btn-base-1 btn-circle" %>
+
                             </div>
                           </div>
                         </div>
-                      <% end %>
+
                       <div class="or or--1 mt-2">
                           <span>or</span>
                       </div>
@@ -95,6 +81,57 @@
                   </div>
                 </li>
               </ul>
+              <%= link_to "  Profil  ", edit_user_registration_path %>
+              <%= link_to "  Se déconnecter  ", destroy_user_session_path, method: :delete %>
+            <% else %>
+            <ul class="dropdown-menu dropdown-menu--right dropdown-form">
+              <li>
+                <div class="dropdown-form-inner">
+                  <div class="row align-items-center b-xs-bottom">
+                    <div class="col-7">
+                      <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Se connecter</h3>
+                    </div>
+                    <div class="col-5">
+                      <%= link_to "<i class='fas fa-times'></i>".html_safe, root_path, class: "btn-close-dropdown" %>
+                    </div>
+                  </div>
+
+                  <div class="py-4">
+                    <%= form_for(:user, url: session_path(:user), class: "form-default") do |f| %>
+                      <div class="form-group">
+                        <%= f.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
+                      </div>
+
+                      <div class="form-group">
+                        <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
+                          <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
+                      </div>
+                      <div class="form-group mb-0">
+                        <div class=" row align-items-center">
+                          <div class="col-6">
+                            <div class="checkbox">
+                              <%= f.check_box :remember_me %>
+                              <%= f.label :remember_me, "Se souvenir de moi" %>
+                            </div>
+                          </div>
+                          <div class="col-6 text-right">
+                            <%= f.submit "Se connecter", class: "btn btn-base-1 btn-circle" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    <div class="or or--1 mt-2">
+                        <span>or</span>
+                    </div>
+                    <%= link_to "<i class='icon fab fa-facebook-f'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(:user, :facebook),
+                                class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
+                    <div class="text-center py-3 b-xs-top">
+                      <%= link_to "Créer un compte", new_user_registration_path %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
             <% end %>
           </li>
 
