@@ -44,7 +44,7 @@
                 <h6 class="dropdown-header">Mon compte</h6>
                 <%= link_to "<i class='fas fa-cog icon-lg'></i>Mon profil".html_safe, edit_user_registration_path, class: "dropdown-item" %>
                 <div class="dropdown-divider" role="presentation"></div>
-                <%= link_to "<i class='ion-md-log-out icon-lg'></i>Me déconnecter".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to "<i class='ion-md-log-out icon-lg'></i>Me déconnecter".html_safe, destroy_user_session_path, class: "dropdown-item" %>
               </li>
             </ul>
             <% else %>
