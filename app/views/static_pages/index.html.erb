@@ -6,4 +6,8 @@
   <p>Test intégration du template :</p>
   <p><%= link_to "HomePage template", template1_path %></p>
   <p><%= link_to "Shop template", template2_path %></p>
+  <p><%= link_to "Page index des produits", patisserie_path, class: "btn btn-styled btn-base-4 mt-4" %></p>
 </div>
+<% if user_signed_in? %>
+<p>Admin ? => <%= current_user.admin %></p>
+<% end %>

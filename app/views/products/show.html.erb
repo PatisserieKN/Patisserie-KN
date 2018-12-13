@@ -1,0 +1,80 @@
+<section class="slice sct-color-1">
+	<div class="container">
+	    <!-- Product gallery and Description -->
+	    <div class="row cols-xs-space cols-sm-space cols-md-space">
+	        <div class="col-lg-6">
+	            <div class="gallery-container">
+	            	<%= image_tag "img-1a.png", class: "img-responsive" %>
+	                <div id="slideshow" class="gallery-top no-padding bg-transparent"></div>
+	                <div id="slideshow_thumbs" class="swiper-js-container gallery-thumbs gallery-thumbs--style-1 mt-4">
+	                    <div class="swiper-container" data-swiper-items="5" data-swiper-space-between="10" data-swiper-xs-items="3" data-swiper-xs-space-between="10" data-swiper-sm-items="4" data-swiper-sm-space-between="10">
+	                        <div class="swiper-wrapper">
+	                            <a class="swiper-slide" data-desoslide-index="0" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                            <a class="swiper-slide" data-desoslide-index="1" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                            <a class="swiper-slide" data-desoslide-index="2" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                            <a class="swiper-slide" data-desoslide-index="3" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                            <a class="swiper-slide" data-desoslide-index="4" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                            <a class="swiper-slide" data-desoslide-index="5" >
+	                                <%= image_tag "img-1a.png" %>
+	                            </a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+
+	        <div class="col-lg-6">
+	            <div class="px-2">
+	                <!-- Product description -->
+	                <div class="product-description-wrapper px-1">
+	                    <!-- Product title -->
+	                    <h2 class="product-title">
+	                        <%= @product.name %>
+	                    </h2>
+	                    <hr>
+	                    <h2 class="product-title mt-3">
+	                        Prix : <%= @product.price %>€ l'unité.
+	                    </h2>	                    
+	                    <hr>
+
+	                    <!-- Product description -->
+	                    <div class="product-short-text mt-3">
+	                        <h3 class="heading heading-xs strong-500 text-uppercase">
+	                            Description:
+	                        </h3>
+	                        <p>
+	                           <%= @product.description %>
+	                        </p>
+	                    </div>
+
+	                    <hr>
+                        <!-- Quantity + Add to cart -->
+                        <div class="d-table product-quantity width-100 mt-3">
+                            <div class="d-table-cell width-20">
+                                <div class="pr-2">
+                                    <input type="text" class="form-control form-control-lg text-center" value="1">
+                                </div>
+                            </div>
+                            <div class="d-table-cell">
+                                <!-- Add to cart button -->
+                                <div class="btn btn-styled btn-block btn-base-1 btn-icon-left">
+                                    <i class="icon ion-ios-cart"></i> Ajouter au panier
+                                </div><br>
+                                <% if user_signed_in? %>
+								<% if current_user.admin == true %>
+								<%= link_to "Modifie ton produit", edit_product_path(@product), class: "btn btn-primary"%>
+								<%= link_to "Supprimer le produit", product_path(@product), method: :delete, class: "btn btn-danger"%>
+								<% end %>
+								<% end %>
+                            </div>
+                        </div>
