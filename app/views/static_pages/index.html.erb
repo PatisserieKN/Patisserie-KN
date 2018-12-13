@@ -2,6 +2,10 @@
 
 <br />
 
+<% if user_signed_in? %>
+  <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete %>
+<% end %>
+
 <div>
   <p>Test intégration du template :</p>
   <p><%= link_to "HomePage template", template1_path %></p>

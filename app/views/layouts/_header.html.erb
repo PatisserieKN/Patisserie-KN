@@ -32,18 +32,27 @@
           </li>
 
           <!-- Login -->
-          <li class="nav-item nav-item-icon">
+          <li class="nav-item nav-item-icon dropdown">
             <a href="#" class="nav-link hidden-md-down" data-toggle="dropdown">
-              <i class="fa fa-user"></i>
+              <i class="fas fa-user"></i>
             </a>
 
             <% if user_signed_in? %>
+            <ul class="dropdown-menu dropdown-menu--right">
+              <li>
+                <h6 class="dropdown-header">Mon compte</h6>
+                <%= link_to "<i class='fas fa-cog icon-lg'></i>Mon profil".html_safe, edit_user_registration_path, class: "dropdown-item" %>
+                <div class="dropdown-divider" role="presentation"></div>
+                <%= link_to "<i class='ion-md-log-out icon-lg'></i>Me déconnecter".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+            </ul>
+            <% else %>
               <ul class="dropdown-menu dropdown-menu--right dropdown-form">
                 <li>
                   <div class="dropdown-form-inner">
                     <div class="row align-items-center b-xs-bottom">
                       <div class="col-7">
-                        <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Mon compte</h3>
+                        <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Se connecter</h3>
                       </div>
                       <div class="col-5">
                         <%= link_to "<i class='fas fa-times'></i>".html_safe, root_path, class: "btn-close-dropdown" %>
@@ -51,24 +60,29 @@
                     </div>
 
                     <div class="py-4">
+                      <%= form_for(:user, url: session_path(:user), class: "form-default") do |f| %>
+                        <div class="form-group">
+                          <%= f.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
+                        </div>
 
-                        <%= link_to "demande de devis", '#', class: "" %>
-
-                      <%= link_to "test", root_path %>
-
+                        <div class="form-group">
+                          <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
+                            <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
+                        </div>
                         <div class="form-group mb-0">
                           <div class=" row align-items-center">
                             <div class="col-6">
                               <div class="checkbox">
-
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me, "Se souvenir de moi" %>
                               </div>
                             </div>
                             <div class="col-6 text-right">
-
+                              <%= f.submit "Se connecter", class: "btn btn-base-1 btn-circle" %>
                             </div>
                           </div>
                         </div>
-
+                      <% end %>
                       <div class="or or--1 mt-2">
                           <span>or</span>
                       </div>
@@ -81,57 +95,6 @@
                   </div>
                 </li>
               </ul>
-              <%= link_to "  Profil  ", edit_user_registration_path %>
-              <%= link_to "  Se déconnecter  ", destroy_user_session_path, method: :delete %>
-            <% else %>
-            <ul class="dropdown-menu dropdown-menu--right dropdown-form">
-              <li>
-                <div class="dropdown-form-inner">
-                  <div class="row align-items-center b-xs-bottom">
-                    <div class="col-7">
-                      <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Se connecter</h3>
-                    </div>
-                    <div class="col-5">
-                      <%= link_to "<i class='fas fa-times'></i>".html_safe, root_path, class: "btn-close-dropdown" %>
-                    </div>
-                  </div>
-
-                  <div class="py-4">
-                    <%= form_for(:user, url: session_path(:user), class: "form-default") do |f| %>
-                      <div class="form-group">
-                        <%= f.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
-                      </div>
-
-                      <div class="form-group">
-                        <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
-                          <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
-                      </div>
-                      <div class="form-group mb-0">
-                        <div class=" row align-items-center">
-                          <div class="col-6">
-                            <div class="checkbox">
-                              <%= f.check_box :remember_me %>
-                              <%= f.label :remember_me, "Se souvenir de moi" %>
-                            </div>
-                          </div>
-                          <div class="col-6 text-right">
-                            <%= f.submit "Se connecter", class: "btn btn-base-1 btn-circle" %>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                    <div class="or or--1 mt-2">
-                        <span>or</span>
-                    </div>
-                    <%= link_to "<i class='icon fab fa-facebook-f'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(:user, :facebook),
-                                class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
-                    <div class="text-center py-3 b-xs-top">
-                      <%= link_to "Créer un compte", new_user_registration_path %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
             <% end %>
           </li>
 
