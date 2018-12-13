@@ -1,5 +1,5 @@
 class ProductMailer < ApplicationMailer
-  default to: -> { User.pluck(:email)},
+  default to: -> { User.pluck(:email) },
   		  from: 'no-reply@patisserie-kn.com'
 
   def new_product_mail
