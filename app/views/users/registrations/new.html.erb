@@ -52,7 +52,7 @@
                               <span>or</span>
                           </div>
                           <%- resource_class.omniauth_providers.each do |provider| %>
-                            <%= link_to "<i class='icon ion-logo-facebook'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
+                            <%= link_to "<i class='icon fab fa-facebook-f'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
                           <% end -%>
                         <% end -%>
                         <%= render "users/shared/links" %>
