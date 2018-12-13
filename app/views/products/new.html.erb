@@ -47,6 +47,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group has-feedback">
+                                      <p><%= f.file_field :image %> <strong>l'image doit être carrée</strong></p> 
+                                    </div>
+                                </div>
+                            </div>
                             <%= f.label :cart_id %>
                             <%= f.text_field :cart_id, class: "form-control" %>
 

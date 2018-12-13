@@ -37,13 +37,18 @@
                         <div class="product-image">
                             <div class="view view-first">
                                 <a href="#">
-                                    <%= link_to image_tag("img-1a.png"), product_path(product) %>
+                                    <% if product.image.attached? %>
+                                    <%= link_to image_tag(product.image.variant(resize: "250x250")), product_path(product) %>
+                                    <% else %>
+
+                                    <%= link_to image_tag("no-image.png"), product_path(product) %>
+                                    <% end %>
                                 </a>
                             </div>
                         </div>
 
                         <div class="block-body px-0">
-                            <h3 class="heading heading-6 strong-500 text-capitalize mb-0"><%= product.name %></h3>
+                            <h3 class="heading heading-6 strong-500 text-capitalize mb-0" align="center"><%= product.name %></h3>
                             <div class="price-wrapper">
                                 <span class="price heading-6 c-gray-light strong-400"><span class="price-value"><%= product.price %>€</span></span>
                             </div>

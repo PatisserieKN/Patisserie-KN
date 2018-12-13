@@ -7,14 +7,8 @@ class ProductsController < ApplicationController
    if current_user.admin == true
     @product = Product.create(product_params)
     if @product.save
-      flash[:success] = "Le produit a bien été créé"
-      #@user_mail = User.all
-      #@array_of_mail = []
-      #@user_mail.each do |f|
-      #  @array_of_mail << f.email
-      #end  
+      flash[:success] = "Le produit a bien été créé" 
       ProductMailer.new_product_mail.deliver_now
-      
       redirect_to root_url
 
     else
@@ -75,6 +69,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category, :cart_id)
+    params.require(:product).permit(:name, :description, :price, :category, :cart_id, :image)
   end
 end

@@ -14,8 +14,10 @@
 
 class Product < ApplicationRecord
   belongs_to :cart
+  has_one_attached :image
   validates_presence_of :name, :description, :price, :category
-  validates :name, length: { minimum: 3, maximum: 63, message: 'minimum 3 caractères and maximum 63 caractères'}
-  validates :description, length: { minimum: 3, maximum: 1023, message: 'minimum 3 caractères and maximum 1023 caractères'}
-  validates :category, length: { minimum: 3, maximum: 63, message: 'minimum 3 caractères and maximum 63 caractères'}
+  validates_length_of :name, in: 3..63, too_short: 'minimum 3 caractères', too_long: 'maximum 63 caractères'
+  validates_length_of :description, in: 3..1023, too_short: 'minimum 3 caractères', too_long: 'maximum 1023 caractères'
+  validates_length_of :category, in: 3..63, too_short: 'minimum 3 caractères', too_long: 'maximum 63 caractères'
+
 end
