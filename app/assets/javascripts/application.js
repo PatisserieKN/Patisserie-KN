@@ -49,7 +49,7 @@
 //= require vide/vide.min
 //= require viewport-checker/viewportchecker.min
 //= require wow/wow.min
-
+//= require deso-slide/js/jquery.desoslide.min
 //= require isotope/isotope.min
 //= require imagesloaded/imagesloaded.pkgd.min
 

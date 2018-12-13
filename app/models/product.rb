@@ -15,7 +15,7 @@
 class Product < ApplicationRecord
   belongs_to :cart
   validates_presence_of :name, :description, :price, :category
-  validates_length_of :name, minimum: 3, maximum: 63
-  validates_length_of :description, minimum: 3, maximum: 1023
-  validates_length_of :category, minimum: 3, maximum: 63
+  validates :name, length: { minimum: 3, maximum: 63, message: 'minimum 3 caractères and maximum 63 caractères'}
+  validates :description, length: { minimum: 3, maximum: 1023, message: 'minimum 3 caractères and maximum 1023 caractères'}
+  validates :category, length: { minimum: 3, maximum: 63, message: 'minimum 3 caractères and maximum 63 caractères'}
 end

@@ -1,0 +1,60 @@
+<section class="slice-lg has-bg-cover bg-size-cover trianglify-admin">
+    <div class="container">
+        <div class="row justify-content-center cols-xs-space">
+            <div class="col-lg-6">
+                <div class="form-card form-card--style-2 z-depth-2-top">
+                    <div class="form-header text-center">
+                        <div class="form-header-icon">
+                            <i class="icon ion-md-cog"></i>
+                        </div>
+                    </div>
+                    <div class="form-body">
+
+                        <div class="text-center px-2">
+                            <h4 class="heading heading-4 strong-400 mb-4">Modifier le produit : <%= @product.name %></h4>
+                        </div>
+                        <%= form_with model: @product, method: :patch, class: "form-default mt-4" do |f| %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.label :nom, class: "control-label" %><br>
+  										<%= f.text_field :name, class: "form-control form-control-lg" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                      	<%= f.label :description, class: "control-label" %><br>
+  										<%= f.text_area :description, class: "form-control form-control-lg" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group has-feedback">
+                                      	<%= f.label :prix, class: "control-label" %><br>
+  										<%= f.text_field :price, class: "form-control form-control-lg" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group has-feedback">
+                                      	<%= f.label :categorie, class: "control-label" %><br>
+  										<%= f.text_field :category, class: "form-control form-control-lg" %>
+                                    </div>
+                                </div>
+                            </div>
+  <%= f.label :cart_id %>
+  <%= f.text_field :cart_id, class: "form-control" %>
+
+                            <%= f.submit "Envoyer", class: "btn btn-styled  btn-base-1 mt-4 col-md-12" %>
+                        <% end %> <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

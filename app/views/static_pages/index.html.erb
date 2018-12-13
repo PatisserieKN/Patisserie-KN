@@ -6,4 +6,20 @@
   <p>Test intégration du template :</p>
   <p><%= link_to "HomePage template", template1_path %></p>
   <p><%= link_to "Shop template", template2_path %></p>
+  <p><%= link_to "Page index des produits", patisserie_path, class: "btn btn-styled btn-base-4 mt-4" %></p>
 </div>
+
+<div>
+  <p>Comptes disponibles avec le seed :</p>
+  <p>admin@kn.com</p>
+  <p>client@kn.com</p>
+  <p>Le mot de passe est 'password' pour les deux</p>
+</div>
+
+<% if user_signed_in? %>
+<p>Admin ? => <%= current_user.admin %></p>
+<% end %>
+<% @users = User.all %>
+<% @users.each do |f| %>
+<%= f.email %><br>
+<% end %>
