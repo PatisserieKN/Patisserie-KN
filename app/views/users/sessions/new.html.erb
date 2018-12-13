@@ -27,6 +27,9 @@
                   <div class="form-group has-feedback">
                     <%= f.label :password %><br />
                     <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
+                    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "small" %><br />
+                    <% end -%>
                   </div>
                 </div>
               </div>
@@ -42,8 +45,16 @@
               <% end %>
               <%= f.submit "Se connecter", class: "btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
             <% end %>
-            <br>
-            <%= render "users/shared/links" %>
+
+            <%- if devise_mapping.omniauthable? %>
+              <div class="or or--1 mt-2">
+                  <span>or</span>
+              </div>
+              <%- resource_class.omniauth_providers.each do |provider| %>
+                <%= link_to "<i class='icon ion-logo-facebook'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
+              <% end -%>
+            <% end -%>
+
           </div>
         </div>
       </div>
