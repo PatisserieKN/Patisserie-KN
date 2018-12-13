@@ -15,12 +15,20 @@
   </head>
 
   <body>
-    <div class="body-wrap">
-      <%= render 'layouts/header' %>
-      <% flash.each do |type, msg| %>
-        <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
-      <% end %>
-      <%= yield %>
+    <div class="body-wrap shop-default shop-minimalist">
+      <div class="st-container" id="st-container">
+        <div class="st-pusher">
+          <div class="st-content">
+            <div class="st-content-inner">
+                <%= render 'layouts/header' %>
+                <% flash.each do |type, msg| %>
+                  <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
+                <% end %>
+                <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
