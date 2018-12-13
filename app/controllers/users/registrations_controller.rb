@@ -23,9 +23,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -54,6 +54,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :account_update,
       keys: [profile_attributes: %i[id first_name last_name phone_number]]
     )
+  end
+
+  def update_resource(resource, params)
+    if params[:password].blank? && params[:password_confirmation].blank? && params[:email] == resource.email
+      params.delete(:current_password)
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
   end
 
   # The path used after sign up.
