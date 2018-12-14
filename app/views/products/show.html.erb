@@ -4,7 +4,11 @@
 	    <div class="row cols-xs-space cols-sm-space cols-md-space">
 	        <div class="col-lg-6">
 	            <div class="gallery-container">
-	            	<%= image_tag "img-1a.png", class: "img-responsive" %>
+	            	<% if @product.image.attached? %>
+	            	<%= image_tag @product.image.variant(resize: "450x450"), class: "img-responsive"%>
+	            	<% else %>
+	            	<%= image_tag("no-image.png", size: "450") %>
+	            	<% end %>
 	                <div id="slideshow" class="gallery-top no-padding bg-transparent"></div>
 	                <div id="slideshow_thumbs" class="swiper-js-container gallery-thumbs gallery-thumbs--style-1 mt-4">
 	                    <div class="swiper-container" data-swiper-items="5" data-swiper-space-between="10" data-swiper-xs-items="3" data-swiper-xs-space-between="10" data-swiper-sm-items="4" data-swiper-sm-space-between="10">

@@ -23,17 +23,26 @@ RSpec.describe Product, type: :model do
 
   it {
     is_expected.to validate_length_of(:name).
-      is_at_least(3).is_at_most(63)
+      is_at_least(3).
+      with_short_message('minimum 3 caractères').
+      is_at_most(63).
+      with_long_message('maximum 63 caractères')
   }
 
   it {
     is_expected.to validate_length_of(:description).
-      is_at_least(3).is_at_most(1023)
+      is_at_least(3).
+      with_short_message('minimum 3 caractères').
+      is_at_most(1023).
+      with_long_message('maximum 1023 caractères')
   }
 
   it {
     is_expected.to validate_length_of(:category).
-      is_at_least(3).is_at_most(63)
+      is_at_least(3).
+      with_short_message('minimum 3 caractères').
+      is_at_most(63).
+      with_long_message('maximum 63 caractères')
   }
 
   let(:product) { create(:product) }
