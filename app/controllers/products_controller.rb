@@ -4,39 +4,36 @@ class ProductsController < ApplicationController
   end
 
   def create
-   if current_user.admin == true
-    @product = Product.create(product_params)
-    if @product.save
-      flash[:success] = "Le produit a bien été créé" 
-      ProductMailer.new_product_mail.deliver_now
-      redirect_to root_url
-
+    if current_user.admin == true
+      @product = Product.create(product_params)
+      if @product.save
+        flash[:success] = "Le produit a bien été créé"
+        ProductMailer.new_product_mail.deliver_now
+      else
+        flash[:danger] = "Une erreur est survenue, #{@product.errors.messages}"
+      end
     else
-      flash[:danger] = "Une erreur est survenue, #{@product.errors.messages}"
-      redirect_to root_url
+      flash[:danger] = "Vous n'avez pas accès à cette section."
     end
-   else
-    flash[:danger] = "Vous n'avez pas accès à cette section."
     redirect_to root_url
-   end
   end
 
   def new
-   if current_user.admin == true
-    @product = Product.new
-   else
-    flash[:danger] = "Vous n'avez pas accès à cette section."
-    redirect_to root_url   
-   end
+    if current_user.admin == true
+      @product = Product.new
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+      redirect_to root_url
+    end
   end
 
   def edit
-   if current_user.admin == true
-    @product = Product.find(params[:id])
-   else
-    flash[:danger] = "Vous n'avez pas accès à cette section."
-    redirect_to root_url   
-   end
+    if current_user.admin == true
+      @product = Product.find(params[:id])
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+      redirect_to root_url
+    end
   end
 
   def show
@@ -44,28 +41,27 @@ class ProductsController < ApplicationController
   end
 
   def update
-   if current_user.admin == true
-    @product = Product.find(params[:id])
-    @product.update(product_params)
-    flash[:success] = "Le produit a bien été modifié"
+    if current_user.admin == true
+      @product = Product.find(params[:id])
+      @product.update(product_params)
+      flash[:success] = "Le produit a bien été modifié"
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+    end
     redirect_to root_url
-   else
-    flash[:danger] = "Vous n'avez pas accès à cette section."
-    redirect_to root_url   
-   end
   end
 
   def destroy
-   if current_user.admin == true
-    @product = Product.find(params[:id])
-    @product.destroy
-    flash[:success] = "Le produit a bien été supprimé"
+    if current_user.admin == true
+      @product = Product.find(params[:id])
+      @product.destroy
+      flash[:success] = "Le produit a bien été supprimé"
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+    end
     redirect_to root_url
-   else
-    flash[:danger] = "Vous n'avez pas accès à cette section."
-    redirect_to root_url   
-   end
   end
+
   private
 
   def product_params

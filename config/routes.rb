@@ -21,7 +21,6 @@ Rails.application.routes.draw do
                                    sign_out: 'deconnexion',
                                    sign_up: 'inscription' }
 
-
   # Il semblerait que la méthode ci dessous ne fonctionne pas avec des controllers customs ?
   # devise_scope :user do
   #   get 'connexion', to: 'devise/sessions#new', as: :new_user_session

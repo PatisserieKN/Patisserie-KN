@@ -19,5 +19,4 @@ class Product < ApplicationRecord
   validates_length_of :name, in: 3..63, too_short: 'minimum 3 caractères', too_long: 'maximum 63 caractères'
   validates_length_of :description, in: 3..1023, too_short: 'minimum 3 caractères', too_long: 'maximum 1023 caractères'
   validates_length_of :category, in: 3..63, too_short: 'minimum 3 caractères', too_long: 'maximum 63 caractères'
-
 end
