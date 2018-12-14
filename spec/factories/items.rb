@@ -15,11 +15,11 @@
 
 FactoryBot.define do
   factory :item do
-    title { "MyString" }
-    personalization { "MyString" }
-    quantity { 1 }
-    price { "9.99" }
-    comment { "MyText" }
-    cart_id { nil }
+    cart
+    title { Faker::Food.fruits }
+    personalization { Faker::Lorem.sentence }
+    quantity { Faker::Number.digit }
+    price { Faker::Number.decimal(2, 2) }
+    comment { Faker::Food.description }
   end
 end
