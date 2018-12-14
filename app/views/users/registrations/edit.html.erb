@@ -70,6 +70,54 @@
                   </div>
 
                   <hr class="mt-0 mb-0">
+                  <!-- Adress info -->
+                  <div class="card no-border bg-transparent">
+                    <div class="card-title px-0 pb-0 no-border">
+                      <h3 class="heading heading-6 strong-600">
+                        Votre Adresse
+                      </h3>
+                      <%= f.fields_for :adress do |ff| %>
+
+                        <div class="field">
+                          <%= ff.label 'Adresse complète' %>
+                          <%= ff.text_field :full_address, placeholder: "Entrez votre adresse", id: :autocomplete_address, autocomplete: "full_address", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'N° de voie' %>
+                          <%= ff.number_field :street_number, id: :street_number, autocomplete: "street_number", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'Ville' %>
+                          <%= ff.text_field :locality, id: :locality, autocomplete: "locality", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'Nom de la voie' %>
+                          <%= ff.text_field :route, id: :route, autocomplete: "route", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'Région' %>
+                          <%= ff.text_field :administrative_area_level_1, id: :administrative_area_level_1, autocomplete: "administrative_area_level_1", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'Pays' %>
+                          <%= ff.text_field :country, id: :country, autocomplete: "country", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="field">
+                          <%= ff.label 'Code postal' %>
+                          <%= ff.number_field :postal_code, id: :postal_code, autocomplete: "postal_code", class: "form-control form-control-lg" %>
+                        </div>
+                        </div>
+                      <% end %>
+                    </div>
+
+                    <hr class="mt-0 mb-0">
+
 
                   <!-- Account info -->
                   <div class="card no-border bg-transparent">

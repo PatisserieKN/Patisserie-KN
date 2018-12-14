@@ -36,6 +36,10 @@ gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 gem "relaxed-rubocop"
 gem "rubocop-rails"
 
+#Google autocomplete
+gem "geocoder"
+gem 'jquery-rails'
+
 # Adds dotenv
 gem 'dotenv-rails'
 
