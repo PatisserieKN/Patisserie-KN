@@ -3,19 +3,8 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def create
-    if current_user.admin == true
-      @product = Product.create(product_params)
-      if @product.save
-        flash[:success] = "Le produit a bien été créé"
-        ProductMailer.new_product_mail.deliver_now
-      else
-        flash[:danger] = "Une erreur est survenue, #{@product.errors.messages}"
-      end
-    else
-      flash[:danger] = "Vous n'avez pas accès à cette section."
-    end
-    redirect_to root_url
+  def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -36,8 +25,19 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-    @product = Product.find(params[:id])
+  def create
+    if current_user.admin == true
+      @product = Product.create(product_params)
+      if @product.save
+        flash[:success] = "Le produit a bien été créé"
+        ProductMailer.new_product_mail.deliver_now
+      else
+        flash[:danger] = "Une erreur est survenue, #{@product.errors.messages}"
+      end
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+    end
+    redirect_to root_url
   end
 
   def update
@@ -65,6 +65,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category, :cart_id, :image)
+    params.require(:product).permit(:name, :description, :price, :category, :image)
   end
 end

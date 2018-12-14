@@ -32,6 +32,5 @@ cart.save!
   Product.create( name: Faker::Food.fruits,
                   description: Faker::Food.description,
                   price: Faker::Number.decimal(2, 2),
-                  category: Faker::Food.dish,
-                  cart_id: 1 )
+                  category: Faker::Food.dish )
 end

@@ -13,7 +13,6 @@
 #
 
 class Product < ApplicationRecord
-  belongs_to :cart
   has_one_attached :image
   validates_presence_of :name, :description, :price, :category
   validates_length_of :name, in: 3..63, too_short: 'minimum 3 caractères', too_long: 'maximum 63 caractères'
