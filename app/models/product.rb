@@ -9,7 +9,6 @@
 #  category    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  cart_id     :bigint(8)
 #
 
 class Product < ApplicationRecord
