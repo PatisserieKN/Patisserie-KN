@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item.price = @item.quantity * session[:unit_price].to_f
       session[:unit_price] = nil
+      @item.comment = nil if @item.comment.blank?
       cart = current_user.cart || Cart.create(user_id: current_user.id)
       @item.cart_id = cart.id
       if @item.save
