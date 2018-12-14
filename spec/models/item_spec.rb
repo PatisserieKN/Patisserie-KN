@@ -17,14 +17,9 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   it { is_expected.to belong_to(:user) }
-  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to belong_to(:product) }
   it { is_expected.to validate_presence_of(:quantity) }
   it { is_expected.to validate_presence_of(:price) }
-
-  it { is_expected.to validate_length_of(:title).
-       is_at_least(3).is_at_most(63).
-       with_message('Problème avec la longueur du titre')
-  }
 
   it { is_expected.to validate_length_of(:personalization).
        is_at_least(3).is_at_most(60).allow_nil.

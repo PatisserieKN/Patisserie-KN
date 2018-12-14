@@ -5,9 +5,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    session[:title_item] = @product.name
-    session[:unit_price] = @product.price
-    @item = Item.new(title: @product.name)
+    session[:product_id] = @product.id
+    @item = Item.new()
   end
 
   def new

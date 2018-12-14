@@ -13,11 +13,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.title = session[:title_item]
-    session[:title_item] = nil
+    @item.product_id = session[:product_id]
+    session[:product_id] = nil
     if user_signed_in?
-      @item.price = @item.quantity * session[:unit_price].to_f
-      session[:unit_price] = nil
+      @item.price = @item.quantity * @item.product.price
       @item.comment = nil if @item.comment.blank?
       @item.personalization.blank? ? @item.personalization = nil : @item.price += 2.5
       @item.user_id = current_user.id
