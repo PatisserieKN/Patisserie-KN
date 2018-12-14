@@ -10,16 +10,17 @@
 </div>
 
 <div>
-  <p>Comptes disponibles avec le seed :</p>
-  <p>admin@kn.com</p>
-  <p>client@kn.com</p>
-  <p>Le mot de passe est 'password' pour les deux</p>
+  Comptes disponibles avec le seed :<br />
+  admin@kn.com<br />
+  client@kn.com<br />
+  Le mot de passe est 'password' pour les deux<br />
 </div>
-
-<% if user_signed_in? %>
-<p>Admin ? => <%= current_user.admin %></p>
-<% end %>
-<% @users = User.all %>
-<% @users.each do |f| %>
-<%= f.email %><br>
-<% end %>
+<div>
+  <% if user_signed_in? %>
+  <p>Admin ? => <%= current_user.admin %></p>
+  <% end %>
+  <% @users = User.all %>
+  <% @users.each do |f| %>
+  <%= f.email %><br>
+  <% end %>
+</div>

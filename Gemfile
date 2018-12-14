@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 # Use devise for authentication system
 gem 'devise'
+gem 'omniauth-facebook'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Adds Faker
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 
 # Adds rubocop
 gem "relaxed-rubocop"
@@ -75,8 +79,6 @@ group :test do
   # Adds shoulda-matchers
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  # Adds Faker
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

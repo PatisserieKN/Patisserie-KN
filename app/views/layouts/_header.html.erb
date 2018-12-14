@@ -1,11 +1,216 @@
+<!-- HEADER -->
 <div class="header">
-  <%= link_to "  Accueil  ", root_path %>
-  <% if user_signed_in? %>
-    <%= link_to "  Profil  ", edit_user_registration_path %>
-    <%= link_to "  Se déconnecter  ", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "  S'enregistrer  ", new_user_registration_path %>
-    <%= link_to "  Se connecter  ", new_user_session_path %>
-    <%= link_to "  Mot de passe oublié ?  ", new_user_password_path %>
-  <% end %>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg    navbar-light bg-default ">
+    <div class="container navbar-container">
+
+      <!-- Brand/Logo -->
+      <%= link_to image_tag("logo.png", alt: "Patisserie KN"), root_path, class: "navbar-brand navbar-brand--centered" %>
+
+      <div class="d-inline-block">
+        <!-- Navbar toggler  -->
+        <button class="navbar-toggler hamburger hamburger-js hamburger--spring" type="button" data-toggle="collapse" data-target="#navbar_main" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse align-items-center justify-content-between" id="navbar_main">
+        <!-- Navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown megamenu">
+            <%= link_to "Patisserie", patisserie_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown megamenu">
+            <%= link_to "Traiteur", '#', class: "nav-link" %>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <%= link_to "Demande de devis", '#', class: "nav-link" %>
+          </li>
+
+          <!-- Login -->
+          <li class="nav-item nav-item-icon dropdown">
+            <a href="#" class="nav-link hidden-md-down" data-toggle="dropdown">
+              <i class="fas fa-user"></i>
+            </a>
+
+            <% if user_signed_in? %>
+            <ul class="dropdown-menu dropdown-menu--right">
+              <li>
+                <h6 class="dropdown-header">Mon compte</h6>
+                <%= link_to "<i class='fas fa-cog icon-lg'></i>Mon profil".html_safe, edit_user_registration_path, class: "dropdown-item" %>
+                <div class="dropdown-divider" role="presentation"></div>
+                <%= link_to "<i class='ion-md-log-out icon-lg'></i>Me déconnecter".html_safe, destroy_user_session_path, class: "dropdown-item" %>
+              </li>
+            </ul>
+            <% else %>
+              <ul class="dropdown-menu dropdown-menu--right dropdown-form">
+                <li>
+                  <div class="dropdown-form-inner">
+                    <div class="row align-items-center b-xs-bottom">
+                      <div class="col-7">
+                        <h3 class="heading heading-5 strong-400 text-capitalize pb-2">Se connecter</h3>
+                      </div>
+                      <div class="col-5">
+                        <%= link_to "<i class='fas fa-times'></i>".html_safe, root_path, class: "btn-close-dropdown" %>
+                      </div>
+                    </div>
+
+                    <div class="py-4">
+                      <%= form_for(:user, url: session_path(:user), class: "form-default") do |f| %>
+                        <div class="form-group">
+                          <%= f.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
+                        </div>
+
+                        <div class="form-group">
+                          <%= f.password_field :password, placeholder: "Mot de passe", class: "form-control form-control-lg" %>
+                          <%= link_to "Mot de passe oublié ?", new_password_path(:user), class: "small" %>
+                        </div>
+                        <div class="form-group mb-0">
+                          <div class=" row align-items-center">
+                            <div class="col-6">
+                              <div class="checkbox">
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me, "Se souvenir de moi" %>
+                              </div>
+                            </div>
+                            <div class="col-6 text-right">
+                              <%= f.submit "Se connecter", class: "btn btn-base-1 btn-circle" %>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                      <div class="or or--1 mt-2">
+                          <span>or</span>
+                      </div>
+                      <%= link_to "<i class='icon fab fa-facebook-f'></i> Se connecter avec Facebook".html_safe, omniauth_authorize_path(:user, :facebook),
+                                  class: "btn btn-styled btn-block btn-facebook btn-icon--2 btn-icon-left px-4" %>
+                      <div class="text-center py-3 b-xs-top">
+                        <%= link_to "Créer un compte", new_user_registration_path %>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
+          </li>
+
+          <!-- Cart -->
+          <li class="nav-item nav-item-icon dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-shopping-bag"></i>
+              <sup class="badge bg-base-1">3</sup>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu--right px-0">
+              <li>
+                <div class="dropdown-cart px-0">
+                  <div class="dc-header">
+                    <h3 class="heading heading-6 strong-600">Cart</h3>
+                  </div>
+                  <div class="dc-item">
+                    <div class="d-flex align-items-center">
+                      <div class="dc-image">
+                        <a href="#">
+                          <%= image_tag "img-1a.png", class: "img-fluid", alt: "" %>
+                        </a>
+                      </div>
+                      <div class="dc-content">
+                        <span class="d-block dc-product-name text-capitalize strong-600 mb-1">
+                          <a href="#">
+                            Wood phone case
+                          </a>
+                        </span>
+                        <span class="dc-quantity">x2</span>
+                        <span class="dc-price">$50.00</span>
+                      </div>
+                      <div class="dc-actions">
+                        <button>
+                          <i class="ion-close"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dc-item">
+                    <div class="d-flex align-items-center">
+                      <div class="dc-image">
+                        <a href="#">
+                          <%= image_tag "img-2a.png", class: "img-fluid", alt: "" %>
+                        </a>
+                      </div>
+                      <div class="dc-content">
+                        <span class="d-block dc-product-name text-capitalize strong-600 mb-1">
+                          <a href="#">
+                            Leather bag
+                          </a>
+                        </span>
+                        <span class="dc-quantity">x1</span>
+                        <span class="dc-price">$250.00</span>
+                      </div>
+                      <div class="dc-actions">
+                        <button>
+                          <i class="ion-close"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dc-item">
+                    <div class="d-flex align-items-center">
+                      <div class="dc-image">
+                        <a href="#">
+                          <%= image_tag "img-3a.png", class: "img-fluid", alt: "" %>
+                        </a>
+                      </div>
+                      <div class="dc-content">
+                        <span class="d-block dc-product-name text-capitalize strong-600 mb-1">
+                          <a href="#">
+                            Brown leather wallet
+                          </a>
+                        </span>
+                        <span class="dc-quantity">x1</span>
+                        <span class="dc-price">$99.00</span>
+                      </div>
+                      <div class="dc-actions">
+                        <button>
+                          <i class="ion-close"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dc-item py-4">
+                    <span class="subtotal-text">Subtotal</span>
+                    <span class="subtotal-amount">$450.00</span>
+                  </div>
+                  <div class="py-4 text-center">
+                    <ul class="inline-links inline-links--style-3">
+                      <li class="pr-3">
+                        <a href="#" class="link link--style-2 text-capitalize">
+                          <i class="ion-person"></i> My account
+                        </a>
+                      </li>
+                      <li class="pr-3">
+                        <a href="#" class="link link--style-1 text-capitalize">
+                          <i class="ion-bag"></i> View cart
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="link link--style-1 text-capitalize">
+                          <i class="ion-forward"></i> Checkout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>

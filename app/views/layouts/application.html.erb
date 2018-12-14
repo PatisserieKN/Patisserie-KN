@@ -8,17 +8,27 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
     <link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="body-wrap">
-      <%= render 'layouts/header' %>
-      <% flash.each do |type, msg| %>
-        <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
-      <% end %>
-      <%= yield %>
+    <div class="body-wrap shop-default shop-minimalist">
+      <div class="st-container" id="st-container">
+        <div class="st-pusher">
+          <div class="st-content">
+            <div class="st-content-inner">
+              <%= render 'layouts/header' %>
+              <% flash.each do |type, msg| %>
+                <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
+              <% end %>
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

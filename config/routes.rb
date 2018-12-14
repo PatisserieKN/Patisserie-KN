@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get '/template1', to: 'static_pages#template1'
   get '/template2', to: 'static_pages#template2'
-  devise_for :users, controllers: { registrations: 'users/registrations' },
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: "client",
                      path_names: { sign_in: 'connexion',
                                    sign_out: 'deconnexion',
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   get 'connexion', to: 'devise/sessions#new', as: :new_user_session
   #   post 'connexion', to: 'devise/sessions#create', as: :user_session
-  #   delete 'deconnexion', to: 'devise/sessions#destroy', as: :destroy_user_session
+  #  delete 'deconnexion', to: 'devise/sessions#destroy', as: :destroy_user_session
   #
   #   get 'inscription', to: 'devise/registrations#new', as: :new_user_registration
   #   post 'inscription', to: 'devise/registrations#create'
