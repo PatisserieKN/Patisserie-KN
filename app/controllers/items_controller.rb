@@ -19,15 +19,22 @@ class ItemsController < ApplicationController
       @item.price = @item.quantity * session[:unit_price].to_f
       session[:unit_price] = nil
       @item.comment = nil if @item.comment.blank?
+      @item.personalization.blank? ? @item.personalization = nil : @item.price += 2.5
       cart = current_user.cart || Cart.create(user_id: current_user.id)
       @item.cart_id = cart.id
       if @item.save
         flash[:info] = 'Votre article a été ajouté au panier'
         redirect_to patisserie_path
       else
-        flash[:danger] = "Votre article n'a pas pu être ajouté au panier"
-        p @item.errors.messages
-        p "nok"
+        error_message = "Votre article n'a pas pu être ajouté au panier pour la/les raison(s) suivante(s) : \n"
+        @item.errors.messages.each do |type|
+          error_message += "- #{type[0]} :\n"
+          type[1].each do |message|
+            error_message += "  - #{message}\n"
+          end
+        end
+        flash[:danger] = error_message
+        redirect_back(fallback_location: root_path)
       end
     else
       flash[:info] = 'Vous devez être connecté pour ajouter un produit dans votre panier.'
