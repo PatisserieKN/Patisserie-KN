@@ -12,6 +12,7 @@
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #  user_id                     :bigint(8)
+#  full_address                :text
 #
 
 FactoryBot.define do
@@ -22,5 +23,7 @@ FactoryBot.define do
     administrative_area_level_1 { "MyString" }
     country { "MyString" }
     postal_code { 1 }
+    full_address { "MyText" }
+    association :user
   end
 end

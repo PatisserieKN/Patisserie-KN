@@ -12,6 +12,7 @@
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #  user_id                     :bigint(8)
+#  full_address                :text
 #
 
 class Adress < ApplicationRecord
@@ -21,6 +22,6 @@ class Adress < ApplicationRecord
   validates :administrative_area_level_1, presence: true
   validates :country, presence: true
   validates :postal_code, presence: true
-  
+  validates :full_address, presence: true
   belongs_to :user
 end
