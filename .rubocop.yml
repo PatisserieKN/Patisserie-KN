@@ -3,3 +3,10 @@ inherit_gem:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'config/environments/*'
+    - 'test/**/*'
