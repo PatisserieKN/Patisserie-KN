@@ -53,6 +53,18 @@
 //= require isotope/isotope.min
 //= require imagesloaded/imagesloaded.pkgd.min
 
+//= require revolution-slider/revolution/js/jquery.themepunch.tools.min
+//= require revolution-slider/revolution/js/jquery.themepunch.revolution.min
+//= require revolution/revolution-slider-shop-electronics
 
+//= require revolution-slider/revolution/js/extensions/revolution.extension.actions.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.carousel.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.kenburn.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.layeranimation.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.migration.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.navigation.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.parallax.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.slideanims.min
+//= require revolution-slider/revolution/js/extensions/revolution.extension.video.min
 
 //= require boomerang.min
