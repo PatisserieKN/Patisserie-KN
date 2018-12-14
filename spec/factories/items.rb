@@ -15,7 +15,7 @@
 
 FactoryBot.define do
   factory :item do
-    cart
+    association :user
     title { Faker::Food.fruits }
     personalization { Faker::Lorem.sentence }
     quantity { Faker::Number.digit }

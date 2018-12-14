@@ -14,7 +14,7 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :cart
+  belongs_to :user
   validates_presence_of :title, :quantity, :price
   validates_length_of :title, in: 3..63, message: "Problème avec la longueur du titre"
   validates_length_of :personalization, in: 3..60, allow_nil: true,

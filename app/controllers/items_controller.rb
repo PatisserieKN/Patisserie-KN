@@ -20,8 +20,7 @@ class ItemsController < ApplicationController
       session[:unit_price] = nil
       @item.comment = nil if @item.comment.blank?
       @item.personalization.blank? ? @item.personalization = nil : @item.price += 2.5
-      cart = current_user.cart || Cart.create(user_id: current_user.id)
-      @item.cart_id = cart.id
+      @item.user_id = current_user.id
       if @item.save
         flash[:info] = 'Votre article a été ajouté au panier'
         redirect_to patisserie_path

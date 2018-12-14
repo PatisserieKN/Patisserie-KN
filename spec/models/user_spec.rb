@@ -23,6 +23,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { is_expected.to have_one(:profile) }
   it { is_expected.to have_one(:cart) }
+  it { is_expected.to have_many(:items) }
 
   it 'is creatable' do
     expect{ create(:user) }.to change(User, :count).by(1)

@@ -11,6 +11,5 @@
 
 class Cart < ApplicationRecord
   belongs_to :user
-  has_many :items
   validates :paid, inclusion: { in: [true, false] }
 end
