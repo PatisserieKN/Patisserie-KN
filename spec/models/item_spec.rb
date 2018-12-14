@@ -26,13 +26,13 @@ RSpec.describe Item, type: :model do
   }
 
   it { is_expected.to validate_length_of(:personalization).
-       is_at_least(3).is_at_most(60).
+       is_at_least(3).is_at_most(60).allow_nil.
        with_short_message('Votre message de personnalisation est trop court. Il doit contenir entre 3 et 60 caractères').
        with_long_message('Votre message de personnalisation est trop long. Il doit contenir entre 3 et 60 caractères')
   }
 
   it { is_expected.to validate_length_of(:comment).
-       is_at_least(3).is_at_most(1000).
+       is_at_least(3).is_at_most(1000).allow_nil.
        with_short_message('Votre commentaire est trop court. Il doit contenir entre 3 et 1000 caractères').
        with_long_message('Votre commentaire est trop long. Il doit contenir entre 3 et 1000 caractères')
   }

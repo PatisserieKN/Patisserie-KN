@@ -5,10 +5,13 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    session[:title_item] = @product.name
+    session[:unit_price] = @product.price
+    @item = Item.new(title: @product.name)
   end
 
   def new
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.new
     else
       flash[:danger] = "Vous n'avez pas accès à cette section."
@@ -17,7 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.find(params[:id])
     else
       flash[:danger] = "Vous n'avez pas accès à cette section."
@@ -26,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.create(product_params)
       if @product.save
         flash[:success] = "Le produit a bien été créé"
@@ -41,7 +44,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.find(params[:id])
       @product.update(product_params)
       flash[:success] = "Le produit a bien été modifié"
@@ -52,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.find(params[:id])
       @product.destroy
       flash[:success] = "Le produit a bien été supprimé"

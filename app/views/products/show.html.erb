@@ -1,84 +1,77 @@
 <section class="slice sct-color-1">
 	<div class="container">
-	    <!-- Product gallery and Description -->
-	    <div class="row cols-xs-space cols-sm-space cols-md-space">
-	        <div class="col-lg-6">
-	            <div class="gallery-container">
-	            	<% if @product.image.attached? %>
-	            	<%= image_tag @product.image.variant(resize: "450x450"), class: "img-responsive"%>
-	            	<% else %>
-	            	<%= image_tag("no-image.png", size: "450") %>
-	            	<% end %>
-	                <div id="slideshow" class="gallery-top no-padding bg-transparent"></div>
-	                <div id="slideshow_thumbs" class="swiper-js-container gallery-thumbs gallery-thumbs--style-1 mt-4">
-	                    <div class="swiper-container" data-swiper-items="5" data-swiper-space-between="10" data-swiper-xs-items="3" data-swiper-xs-space-between="10" data-swiper-sm-items="4" data-swiper-sm-space-between="10">
-	                        <div class="swiper-wrapper">
-	                            <a class="swiper-slide" data-desoslide-index="0" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                            <a class="swiper-slide" data-desoslide-index="1" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                            <a class="swiper-slide" data-desoslide-index="2" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                            <a class="swiper-slide" data-desoslide-index="3" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                            <a class="swiper-slide" data-desoslide-index="4" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                            <a class="swiper-slide" data-desoslide-index="5" >
-	                                <%= image_tag "img-1a.png" %>
-	                            </a>
-	                        </div>
-	                    </div>
-	                </div>
+    <!-- Product gallery and Description -->
+    <div class="row">
+    	<div class="col-lg-5">
+        <div class="gallery-container">
+        	<% if @product.image.attached? %>
+        		<%= image_tag @product.image.variant(resize: "450x450"), class: "img-responsive"%>
+          <% else %>
+          	<%= image_tag("no-image.png", size: "450") %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="px-2">
+          <!-- Product description -->
+          <div class="product-description-wrapper">
+            <!-- Product title -->
+            <h2 class="product-title heading heading-3 strong-400 text-capitalize">
+              <%= @product.name %>
+            </h2>
+            <hr>
+
+						<!-- Product description -->
+	          <div class="product-short-text mt-4">
+	              <h3 class="heading heading-xs strong-500 text-uppercase">
+	                  Description:
+	              </h3>
+	              <p>
+	                 <%= @product.description %>
+	              </p>
+	          </div>
+            <hr>
+						<%= form_with model: @item, url: items_path do |f| %>
+							<div class="row d-flex justify-content-between align-items-center">
+								<div class="col-md-4">
+									<div class="product-price py-1">
+									<%= @product.price %>€/part
+									</div>
+								</div>
+						    <div class="col-md-4">
+				  	      <div class="form-group">
+										Nombre de part :
+										<%= f.select(:quantity, options_for_select([[6, 6], [8, 8], [10, 10]]), class: "form-control form-control-lg") %>
+							  	</div>
+							  </div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<%= f.label :comment, 'Voulez vous ajouter un commentaire (allergies ...) ?',class: "control-label" %><br />
+										<%= f.email_field :comment, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
+									</div>
+								</div>
+							</div>
+
+	            <div class="row">
+                <!-- Add to cart button -->
+								<%= button_tag type: 'submit', class: "btn btn-styled btn-block btn-base-1 btn-icon-left" do %>
+					      	<i class="icon ion-ios-cart" aria-hidden="true"></i>Ajouter au panier
+								<% end %>
 	            </div>
-	        </div>
-
-	        <div class="col-lg-6">
-	            <div class="px-2">
-	                <!-- Product description -->
-	                <div class="product-description-wrapper px-1">
-	                    <!-- Product title -->
-	                    <h2 class="product-title">
-	                        <%= @product.name %>
-	                    </h2>
-	                    <hr>
-	                    <h2 class="product-title mt-3">
-	                        Prix : <%= @product.price %>€ l'unité.
-	                    </h2>	                    
-	                    <hr>
-
-	                    <!-- Product description -->
-	                    <div class="product-short-text mt-3">
-	                        <h3 class="heading heading-xs strong-500 text-uppercase">
-	                            Description:
-	                        </h3>
-	                        <p>
-	                           <%= @product.description %>
-	                        </p>
-	                    </div>
-
-	                    <hr>
-                        <!-- Quantity + Add to cart -->
-                        <div class="d-table product-quantity width-100 mt-3">
-                            <div class="d-table-cell width-20">
-                                <div class="pr-2">
-                                    <input type="text" class="form-control form-control-lg text-center" value="1">
-                                </div>
-                            </div>
-                            <div class="d-table-cell">
-                                <!-- Add to cart button -->
-                                <div class="btn btn-styled btn-block btn-base-1 btn-icon-left">
-                                    <i class="icon ion-ios-cart"></i> Ajouter au panier
-                                </div><br>
-                                <% if user_signed_in? %>
-								<% if current_user.admin == true %>
+						<% end %>
+						<% if user_signed_in? %>
+							<% if current_user.admin == true %>
 								<%= link_to "Modifie ton produit", edit_product_path(@product), class: "btn btn-primary"%>
 								<%= link_to "Supprimer le produit", product_path(@product), method: :delete, class: "btn btn-danger"%>
-								<% end %>
-								<% end %>
-                            </div>
-                        </div>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
