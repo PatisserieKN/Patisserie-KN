@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Adds Faker
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+
 # Adds rubocop
 gem "relaxed-rubocop"
 gem "rubocop-rails"
@@ -76,8 +79,6 @@ group :test do
   # Adds shoulda-matchers
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  # Adds Faker
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
