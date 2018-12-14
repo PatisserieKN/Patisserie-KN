@@ -26,7 +26,9 @@ class User < ApplicationRecord
          :confirmable
   devise :omniauthable, omniauth_providers: %i[facebook]
   has_one :profile, dependent: :destroy
+  has_one :adress, dependent: :destroy
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :adress
   has_one :cart
 
   def self.from_omniauth(auth)

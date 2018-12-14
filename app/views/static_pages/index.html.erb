@@ -24,3 +24,8 @@
   <%= f.email %><br>
   <% end %>
 </div>
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:autocomplete, "Test du google autocomplete places") %>
+  <%= text_field_tag(:autocomplete) %>
+  <%= submit_tag("Search") %>
+<% end %>
