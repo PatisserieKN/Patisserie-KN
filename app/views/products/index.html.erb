@@ -43,7 +43,7 @@
               </div>
               <div class="block-body px-0 d-flex flex-column align-items-center ">
                 <%= link_to "#{product.name}", product_path(product), class: "heading heading-6 strong-500 text-capitalize mb-0" %>
-                <%= "#{product.price}€/part" %>
+                <%= number_to_currency product.price, unit: "€", separator: ",", format: "%n%u/part"  %>
               </div>
             </div>
           </div>
