@@ -3,8 +3,32 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def show
+    @product = Product.find(params[:id])
+    session[:product_id] = @product.id
+    @item = Item.new()
+  end
+
+  def new
+    if user_signed_in? && current_user.admin == true
+      @product = Product.new
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+      redirect_to root_url
+    end
+  end
+
+  def edit
+    if user_signed_in? && current_user.admin == true
+      @product = Product.find(params[:id])
+    else
+      flash[:danger] = "Vous n'avez pas accès à cette section."
+      redirect_to root_url
+    end
+  end
+
   def create
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.create(product_params)
       if @product.save
         flash[:success] = "Le produit a bien été créé"
@@ -18,30 +42,8 @@ class ProductsController < ApplicationController
     redirect_to root_url
   end
 
-  def new
-    if current_user.admin == true
-      @product = Product.new
-    else
-      flash[:danger] = "Vous n'avez pas accès à cette section."
-      redirect_to root_url
-    end
-  end
-
-  def edit
-    if current_user.admin == true
-      @product = Product.find(params[:id])
-    else
-      flash[:danger] = "Vous n'avez pas accès à cette section."
-      redirect_to root_url
-    end
-  end
-
-  def show
-    @product = Product.find(params[:id])
-  end
-
   def update
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.find(params[:id])
       @product.update(product_params)
       flash[:success] = "Le produit a bien été modifié"
@@ -52,7 +54,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if current_user.admin == true
+    if user_signed_in? && current_user.admin == true
       @product = Product.find(params[:id])
       @product.destroy
       flash[:success] = "Le produit a bien été supprimé"
@@ -65,6 +67,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category, :cart_id, :image)
+    params.require(:product).permit(:name, :description, :price, :category, :image)
   end
 end

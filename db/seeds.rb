@@ -31,7 +31,6 @@ cart.save!
 20.times do
   Product.create( name: Faker::Food.fruits,
                   description: Faker::Food.description,
-                  price: Faker::Number.decimal(2, 2),
-                  category: Faker::Food.dish,
-                  cart_id: 1 )
+                  price: 3.2,
+                  category: "Patisserie" )
 end

@@ -16,10 +16,8 @@
                     <a href="#" class="btn btn-styled btn-base-4 mt-4" data-scroll-to="#sct_products">
                         Voir les produits
                     </a>
-                    <% if user_signed_in? %>
-                    <% if current_user.admin == true %>
-                    <%= link_to "Créer un produit", new_product_path(@product), class: "btn btn-styled btn-base-4 mt-4" %>
-                    <% end %>
+                    <% if user_signed_in? && current_user.admin %>
+                      <%= link_to "Créer un produit", new_product_path(@product), class: "btn btn-styled btn-base-4 mt-4" %>
                     <% end %>
                 </div>
             </div>
@@ -28,36 +26,24 @@
 </section>
 
 <section class="slice sct-color-1" id="sct_products">
-    <div class="container">
-        <div class="row-wrapper">
-            <div class="row cols-xs-space cols-sm-space cols-md-space">
-            	<% @products.each do |product| %>
-                <div class="col-lg-3 col-md-6">
-                    <div class="block product no-radius">
-                        <div class="product-image">
-                            <div class="view view-first">
-                                <a href="#">
-                                    <% if product.image.attached? %>
-                                    <%= link_to image_tag(product.image.variant(resize: "250x250")), product_path(product) %>
-                                    <% else %>
-
-                                    <%= link_to image_tag("no-image.png"), product_path(product) %>
-                                    <% end %>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="block-body px-0">
-                            <h3 class="heading heading-6 strong-500 text-capitalize mb-0" align="center"><%= product.name %></h3>
-                            <div class="price-wrapper">
-                                <span class="price heading-6 c-gray-light strong-400"><span class="price-value"><%= product.price %>€</span></span>
-                            </div>
-                            <div class="btn btn-primary">Ajouter au panier</div>
-                        </div>
-                    </div>
-                </div>
-                <% end %>
+  <div class="container">
+    <div class="row-wrapper">
+      <div class="row cols-xs-space cols-sm-space cols-md-space">
+      	<% @products.each do |product| %>
+          <div class="col-lg-3 col-md-6">
+            <div class="block product no-radius">
+              <% if product.image.attached? %>
+                <%= link_to image_tag(product.image, size: "250", class: "view view-first"), product_path(product), class: "product-image" %>
+              <% else %>
+                <%= link_to image_tag("no-image.png"), product_path(product) %>
+              <% end %>
+              <div class="block-body px-0">
+                <%= link_to "#{product.name}", product_path(product), class: "heading heading-6 strong-500 text-capitalize mb-0 d-flex justify-content-center" %>
+              </div>
             </div>
-        </div>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </section>

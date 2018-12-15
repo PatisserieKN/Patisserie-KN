@@ -1,0 +1,12 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.background-perso-1 {
+  background-image: asset-url(wallpaper);
+}
+
+.personalization-police {
+  font-size: .75rem;
+  font-family: "Nunito", sans-serif;
+  color: rgba(0, 0, 0, 0.5)
+}

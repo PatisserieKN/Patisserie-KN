@@ -46,21 +46,21 @@
                         <div class="row">
                           <div class="col-md-6 col-lg-4">
                             <div class="form-group">
-                              <%= ff.label :first_name %><br />
+                              <%= ff.label :first_name, 'Prénom' %>
                               <%= ff.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control form-control-lg" %>
                             </div>
                           </div>
 
                           <div class="col-md-6 col-lg-4">
                             <div class="form-group">
-                              <%= ff.label :last_name %><br />
+                              <%= ff.label :last_name, 'Nom de famille' %>
                               <%= ff.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control form-control-lg" %>
                             </div>
                           </div>
 
                           <div class="col-md-6 col-lg-4">
                             <div class="form-group">
-                              <%= ff.label :phone_number %><br />
+                              <%= ff.label :phone_number, 'Numéro de téléphone' %>
                               <%= ff.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control form-control-lg" %>
                             </div>
                           </div>
@@ -83,41 +83,46 @@
                           <%= ff.text_field :full_address, placeholder: "Entrez votre adresse", id: :autocomplete_address, autocomplete: "full_address", class: "form-control form-control-lg" %>
                         </div>
 
-                        <div class="field">
-                          <%= ff.label 'N° de voie' %>
-                          <%= ff.number_field :street_number, id: :street_number, autocomplete: "street_number", class: "form-control form-control-lg" %>
+                        <div class="row">
+                          <div class="field col-2">
+                            <%= ff.label 'N° de voie' %>
+                            <%= ff.number_field :street_number, id: :street_number, autocomplete: "street_number", class: "form-control form-control-lg" %>
+                          </div>
+
+                          <div class="field col-10">
+                            <%= ff.label 'Nom de la voie' %>
+                            <%= ff.text_field :route, id: :route, autocomplete: "route", class: "form-control form-control-lg" %>
+                          </div>
                         </div>
 
-                        <div class="field">
-                          <%= ff.label 'Ville' %>
-                          <%= ff.text_field :locality, id: :locality, autocomplete: "locality", class: "form-control form-control-lg" %>
+                        <div class="row">
+                          <div class="field col-2">
+                            <%= ff.label 'Code postal' %>
+                            <%= ff.number_field :postal_code, id: :postal_code, autocomplete: "postal_code", class: "form-control form-control-lg" %>
+                          </div>
+
+                          <div class="field col-10">
+                            <%= ff.label 'Ville' %>
+                            <%= ff.text_field :locality, id: :locality, autocomplete: "locality", class: "form-control form-control-lg" %>
+                          </div>
                         </div>
 
-                        <div class="field">
-                          <%= ff.label 'Nom de la voie' %>
-                          <%= ff.text_field :route, id: :route, autocomplete: "route", class: "form-control form-control-lg" %>
-                        </div>
+                        <div class="row">
+                          <div class="field col-6">
+                            <%= ff.label 'Région' %>
+                            <%= ff.text_field :administrative_area_level_1, id: :administrative_area_level_1, autocomplete: "administrative_area_level_1", class: "form-control form-control-lg" %>
+                          </div>
 
-                        <div class="field">
-                          <%= ff.label 'Région' %>
-                          <%= ff.text_field :administrative_area_level_1, id: :administrative_area_level_1, autocomplete: "administrative_area_level_1", class: "form-control form-control-lg" %>
-                        </div>
-
-                        <div class="field">
-                          <%= ff.label 'Pays' %>
-                          <%= ff.text_field :country, id: :country, autocomplete: "country", class: "form-control form-control-lg" %>
-                        </div>
-
-                        <div class="field">
-                          <%= ff.label 'Code postal' %>
-                          <%= ff.number_field :postal_code, id: :postal_code, autocomplete: "postal_code", class: "form-control form-control-lg" %>
-                        </div>
+                          <div class="field col-6">
+                            <%= ff.label 'Pays' %>
+                            <%= ff.text_field :country, id: :country, autocomplete: "country", class: "form-control form-control-lg" %><br />
+                          </div>
                         </div>
                       <% end %>
                     </div>
+                  </div>
 
-                    <hr class="mt-0 mb-0">
-
+                  <hr class="mt-0 mb-0">
 
                   <!-- Account info -->
                   <div class="card no-border bg-transparent">
@@ -125,7 +130,7 @@
                       <h3 class="heading heading-6 strong-600">
                         Information du compte
                       </h3>
-                      <div class="mt-1 mb-0">
+                      <div class="mt-1 mb-0 field">
                         Votre email actuel : <%= @user.email %><br />
 
                         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
