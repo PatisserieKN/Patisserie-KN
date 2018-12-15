@@ -1,0 +1,26 @@
+<section class="slice-lg has-bg-cover bg-size-cover">
+    <div class="container">
+        <div class="row justify-content-center cols-xs-space">
+            <div class="col-lg-6">
+                <div class="form-card form-card--style-2 z-depth-2-top">
+                    <div class="form-header text-center">
+                        <div class="form-header-icon">
+                            <i class="icon ion-ios-clipboard"></i>
+                        </div>
+                    </div>
+                    <div class="form-body">
+                    <h4 class="heading heading-4 strong-400 mb-4"><b>Demande de devis envoyée !</b></h4>
+
+                    <p><b>Voici le récapitulatif de votre devis :</b></p>
+                    <p><b>Votre nom : </b><%= @full_name %></p>
+                    <p><b>Votre numéro de téléphone: </b><%= @phone_number %></p>
+                    <p><b>Votre adresse e-mail: </b><%= @email %></p>
+                    <p><b>L'objet: </b><%= @subject %></p>
+                    <p><b>Le message: </b><%= @message %></p>
+                    <%= link_to "Retourner à l'accueil", root_path, class: "btn btn-styled btn-block btn-base-1 mt-4" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

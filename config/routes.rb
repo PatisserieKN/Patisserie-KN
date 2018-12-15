@@ -10,6 +10,8 @@
 
 Rails.application.routes.draw do
 
+  get 'devis/new', to: 'quotation#new'
+  get 'devis/show', to: 'quotation#show'
   get '/patisserie', to: 'products#index'
   resources :products, except: :index
   resources :items
