@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   def index
-    
   end
 
   def show
@@ -45,6 +44,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:info] = 'Vous avez correctement supprimé ce produit de votre panier'
+    redirect_back(fallback_location: items_path)
   end
 
   private

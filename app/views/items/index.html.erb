@@ -13,7 +13,7 @@
         <!-- Fluid text paragraph -->
         <div class="pb-4 mt-4">
           <p class="lead">
-            Parturient mus aenean a suspendisse est ligula eu dui a ultricies dictumst porttitor rhoncus a vestibulum.
+            Il est frais mon gateau, il est frais ! :D Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, quae modi.
           </p>
         </div>
       </div>
@@ -40,7 +40,6 @@
                 </thead>
                 <tbody>
                   <% current_user.items.each do |item| %>
-                    <!-- Cart item -->
                     <tr class="cart-item">
                       <td class="product-image">
                         <% if item.product.image.attached? %>
@@ -64,7 +63,7 @@
                         <span><%= item.price %> €</span>
                       </td>
                       <td class="product-remove">
-                        <%= link_to "<i class='icon ion-md-trash'></i>".html_safe, '#' %>
+                        <%= link_to "<i class='icon ion-md-trash'></i>".html_safe, item_path(item), method: :delete %>
                       </td>
                     </tr>
                   <% end %>
@@ -88,14 +87,12 @@
               <i class="icon-hotel-restaurant-105"></i>
             </div>
 
-            <h2 class="heading heading-3 strong-600">Your cart is empty.</h2>
+            <h2 class="heading heading-3 strong-600">Votre panier est vide.</h2>
             <p class="mt-4 px-5">
-              Your cart is currently empty. Return to our shop and check out the latest offers.
-              We have some great items that are waiting for you.
+              Votre panier est actuellement vide. Vous pouvez retourner dans la boutique pour profiter de nos dernières offres.
+              Nos meilleures patisseries vous attendent !
             </p>
-            <a href="#" class="btn btn-styled btn-base-1 mt-5">
-              Go shopping
-            </a>
+            <%= link_to "Accéder à la boutique", patisserie_path, class: "btn btn-styled btn-base-1 mt-5" %>
           </div>
         </div>
       <% end %>
