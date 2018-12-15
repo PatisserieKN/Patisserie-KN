@@ -32,13 +32,18 @@
       	<% @products.each do |product| %>
           <div class="col-lg-3 col-md-6">
             <div class="block product no-radius">
-              <% if product.image.attached? %>
-                <%= link_to image_tag(product.image, size: "250", class: "view view-first"), product_path(product), class: "product-image" %>
-              <% else %>
-                <%= link_to image_tag("no-image.png"), product_path(product) %>
-              <% end %>
-              <div class="block-body px-0">
-                <%= link_to "#{product.name}", product_path(product), class: "heading heading-6 strong-500 text-capitalize mb-0 d-flex justify-content-center" %>
+              <div class="product-image">
+                <div class="view view-first">
+                  <% if product.image.attached? %>
+                    <%= link_to image_tag(product.image, size: "250"), product_path(product) %>
+                  <% else %>
+                    <%= link_to image_tag("no-image.png"), product_path(product) %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="block-body px-0 d-flex flex-column align-items-center ">
+                <%= link_to "#{product.name}", product_path(product), class: "heading heading-6 strong-500 text-capitalize mb-0" %>
+                <%= "#{product.price}€/part" %>
               </div>
             </div>
           </div>
