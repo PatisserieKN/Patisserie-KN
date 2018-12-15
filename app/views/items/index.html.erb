@@ -43,7 +43,7 @@
                     <tr class="cart-item">
                       <td class="product-image">
                         <% if item.product.image.attached? %>
-                          <%= image_tag item.product.image.variant(resize: "50*50"), class: "img-responsive"%>
+                          <%= image_tag item.product.image, size: "50", class: "img-responsive"%>
                         <% else %>
                           <%= image_tag("no-image.png", size: "50") %>
                         <% end %>
