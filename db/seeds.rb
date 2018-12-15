@@ -28,7 +28,18 @@ cart = Cart.new
 cart.user_id = User.last.id
 cart.save!
 
-20.times do
+Product.create( name: "BÛCHE NOISETTINE, ÉDITION LIMITÉE 2018",
+                description: "En vente sur notre site et en boulangerie du VENDREDI 14 au LUNDI 31 DÉCEMBRE 2018.
+                              Éric Kayser et ses équipes proposent une bûche édition spéciale « Noisettine » pour sublimer les fins de repas de fêtes.
+                              La noisette est réputée pour sa saveur, c’est l’un de nos « fruits des bois » les plus délicats.
+                              Elle rappelle, par sa douceur et son parfum subtil, les souvenirs d’enfance : nougat, pralines, crèmes au praliné…
+                              L’association noisette citron est exquise. Le citron apporte un zeste d’acidité sucrée qui sublime le goût de la noisette et titille divinement les papilles.
+                              Cette création, qui joue avec les textures, l’acidulé et la douceur, achèvera avec finesse et fraîcheur les repas de fêtes.",
+                price: 3.2,
+                category: "Patisserie" )
+
+
+19.times do
   Product.create( name: Faker::Food.fruits,
                   description: Faker::Food.description,
                   price: Faker::Number.decimal(2, 2),
