@@ -55,7 +55,7 @@
 
 //= require revolution-slider/revolution/js/jquery.themepunch.tools.min
 //= require revolution-slider/revolution/js/jquery.themepunch.revolution.min
-//= require revolution-slider-shop-electronics
+
 
 //= require revolution-slider/revolution/js/extensions/revolution.extension.actions.min
 //= require revolution-slider/revolution/js/extensions/revolution.extension.carousel.min
