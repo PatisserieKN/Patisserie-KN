@@ -19,6 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless @user.profile
       @user.build_profile
     end
+    unless @user.adress
+      @user.build_adress
+    end
     super
   end
 
@@ -52,7 +55,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(
       :account_update,
-      keys: [profile_attributes: %i[id first_name last_name phone_number]]
+      keys: [profile_attributes: %i[id first_name last_name phone_number], adress_attributes: %i[street_number route locality administrative_area_level_1 country postal_code full_address]]
     )
   end
 
