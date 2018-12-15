@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# S3
+gem "aws-sdk-s3", require: false
 # Adds Faker
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 
