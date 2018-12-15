@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour <%= @full_name %></h1>
+    <p>
+      Nous avons bien reçu votre demande devis, voici un récapitulatif :<br>
+    </p>
+    <p><b>Votre nom : </b><%= @full_name %></p>
+    <p><b>Votre numéro de téléphone: </b><%= @phone_number %></p>
+    <p><b>Votre adresse e-mail: </b><%= @email %></p>
+    <p><b>L'objet: </b><%= @subject %></p>
+    <p><b>Le message: </b><%= @message %></p>
+  </body>
+</html>
