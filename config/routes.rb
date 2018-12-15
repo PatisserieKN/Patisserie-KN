@@ -16,8 +16,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
   get '/unavailable', to: 'static_pages#unavailable'
-  get '/template1', to: 'static_pages#template1'
-  get '/template2', to: 'static_pages#template2'
+
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: "client",
