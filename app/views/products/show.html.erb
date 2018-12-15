@@ -5,7 +5,7 @@
     	<div class="col-lg-5">
         <div class="gallery-container">
         	<% if @product.image.attached? %>
-        		<%= image_tag @product.image.variant(resize: "450x450"), class: "img-responsive"%>
+        		<%= image_tag @product.image, size: "450", class: "img-responsive"%>
           <% else %>
           	<%= image_tag("no-image.png", size: "450") %>
           <% end %>

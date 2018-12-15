@@ -33,7 +33,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="block product no-radius">
               <% if product.image.attached? %>
-                <%= link_to image_tag(product.image.variant(resize: "250x250"), class: "view view-first"), product_path(product), class: "product-image" %>
+                <%= link_to image_tag(product.image, size: "250", class: "view view-first"), product_path(product), class: "product-image" %>
               <% else %>
                 <%= link_to image_tag("no-image.png"), product_path(product) %>
               <% end %>

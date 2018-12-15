@@ -123,7 +123,7 @@
                         <div class="d-flex align-items-center">
                           <div class="dc-image">
                             <% if item.product.image.attached? %>
-                              <%= image_tag item.product.image.variant(resize: "50*50"), class: "img-responsive"%>
+                              <%= image_tag item.product.image, size: "50" %>
                             <% else %>
                               <%= image_tag("no-image.png", size: "50") %>
                             <% end %>
