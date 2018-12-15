@@ -16,22 +16,15 @@
   </head>
 
   <body>
-    <div class="body-wrap shop-default shop-minimalist">
-      <div class="st-container" id="st-container">
-        <div class="st-pusher">
-          <div class="st-content">
-            <div class="st-content-inner">
-              <%= render 'layouts/header' %>
-              <% flash.each do |type, msg| %>
-                <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
-              <% end %>
-              <%= yield %>
-              <%= render 'layouts/footer' %>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="body-wrap">
+      <%= render 'layouts/header' %>
+      <% flash.each do |type, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-#{type}") %>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
+    
     <script>
       function initializeAutocomplete(id) {
     var element = document.getElementById(id);
@@ -60,6 +53,6 @@
   google.maps.event.addDomListener(window, 'load', function() {
     initializeAutocomplete('autocomplete_address');
   });
-    </script>   
+    </script>
   </body>
 </html>
