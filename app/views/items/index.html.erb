@@ -60,7 +60,7 @@
                         </div>
                       </td>
                       <td class="product-total">
-                        <span><%= item.price %> €</span>
+                        <span><%= number_to_currency item.price, unit: "€", separator: ",", format: "%n%u"  %></span>
                       </td>
                       <td class="product-remove">
                         <%= link_to "<i class='icon ion-md-trash'></i>".html_safe, item_path(item), method: :delete %>

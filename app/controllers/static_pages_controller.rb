@@ -4,4 +4,6 @@ class StaticPagesController < ApplicationController
   def template1; end
 
   def template2; end
+
+  def unavailable; end
 end

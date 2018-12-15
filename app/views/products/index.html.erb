@@ -16,9 +16,6 @@
                     <a href="#" class="btn btn-styled btn-base-4 mt-4" data-scroll-to="#sct_products">
                         Voir les produits
                     </a>
-                    <% if user_signed_in? && current_user.admin %>
-                      <%= link_to "Créer un produit", new_product_path(@product), class: "btn btn-styled btn-base-4 mt-4" %>
-                    <% end %>
                 </div>
             </div>
         </div>
@@ -43,7 +40,7 @@
               </div>
               <div class="block-body px-0 d-flex flex-column align-items-center ">
                 <%= link_to "#{product.name}", product_path(product), class: "heading heading-6 strong-500 text-capitalize mb-0" %>
-                <%= number_to_currency product.price, unit: "€", separator: ",", format: "%n%u/part"  %>
+                <%= number_to_currency product.price, unit: "€", separator: ",", format: "%n%u /part"  %>
               </div>
             </div>
           </div>

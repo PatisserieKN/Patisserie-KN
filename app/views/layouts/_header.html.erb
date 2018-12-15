@@ -23,7 +23,14 @@
             <%= link_to "Patisserie", patisserie_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown megamenu">
-            <%= link_to "Traiteur", '#', class: "nav-link" %>
+            <%= link_to "Traiteur", unavailable_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown megamenu">
+            <% if user_signed_in? && current_user.admin %>
+              <%= link_to "Créer un produit", new_product_path(@product), class: "btn btn-styled btn-base-4 btn-outline btn-sm nav-link" %>
+            <% end %>
           </li>
         </ul>
 
@@ -133,7 +140,7 @@
                               <%= item.product.name %>
                             </span>
                             <span class="dc-quantity"><%= item.quantity %> parts</span>
-                            <span class="dc-price"><%= item.price %> €</span>
+                            <span class="dc-price"><%= number_to_currency item.price, unit: "€", separator: ",", format: "%n%u" %></span>
                           </div>
                         </div>
                       </div>
@@ -144,7 +151,7 @@
                       <% current_user.items.each do |item| %>
                         <% subtotal += item.price %>
                       <% end %>
-                      <span class="subtotal-amount"><%= subtotal %> €</span>
+                      <span class="subtotal-amount"><%= number_to_currency subtotal, unit: "€", separator: ",", format: "%n%u"  %></span>
                     </div>
                     <div class="py-4 text-center">
                       <ul class="inline-links inline-links--style-3">

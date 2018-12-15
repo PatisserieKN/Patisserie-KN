@@ -1,31 +1,31 @@
 <footer id="footer" class="footer footer-inverse">
-    <div>
-        <div class="container">
-            <div class="text-center">
-                <ul class="footer-menu">
-                    <li>
-                        <%= link_to "Accueil", root_path %>
-                    </li>
-                    <li>
-                        <a href="#">À propos</a>
-                    </li>
-                    <li>
-                        <%= link_to "Shop", root_path %>
-                    </li>
-                    <li class="logo-delimiter">
-                        <%= link_to image_tag("logo.png", alt: "Patisserie KN"), root_path %>
-                    </li>
-                    <li>
-                        <a href="#">CGU</a>
-                    </li>
-                    <li>
-                        <a href="#">Facebook</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div>
+    <div class="container">
+      <div class="text-center">
+        <ul class="footer-menu">
+          <li>
+            <%= link_to "Accueil", root_path %>
+          </li>
+          <li>
+            <%= link_to 'à propos', unavailable_path %>
+          </li>
+          <li>
+            <%= link_to "Boutique", root_path %>
+          </li>
+          <li class="logo-delimiter">
+            <%= link_to image_tag("logo.png", alt: "Patisserie KN"), root_path %>
+          </li>
+          <li>
+            <%= link_to 'CGU', unavailable_path %>
+          </li>
+          <li>
+            <%= link_to 'Facebook', unavailable_path %>
+          </li>
+          <li>
+            <%= link_to 'Contact', unavailable_path %>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </footer>
