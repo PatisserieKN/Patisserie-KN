@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
       current_user.items.each do |item|
         global_price += item.price
       end
-      @order = Order.create(user_id: current_user.id, global_price: global_price)
+      @order = Order.create(user_id: current_user.id, global_price: global_price, paid: true)
     end
   end
 
