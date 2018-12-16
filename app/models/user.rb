@@ -29,7 +29,6 @@ class User < ApplicationRecord
   has_one :adress, dependent: :destroy
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :adress
-  has_one :cart
   has_many :items
 
   def self.from_omniauth(auth)
