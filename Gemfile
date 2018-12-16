@@ -34,6 +34,9 @@ gem "aws-sdk-s3", require: false
 # Adds Faker
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 
+# Adds stripe
+gem 'stripe'
+
 # Adds rubocop
 gem "relaxed-rubocop"
 gem "rubocop-rails"

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/patisserie', to: 'products#index'
   resources :products, except: :index
   resources :items
+  resources :charges, only: [:new, :create]
 
   root 'products#index'
   get '/unavailable', to: 'static_pages#unavailable'
