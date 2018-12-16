@@ -1,5 +1,16 @@
 class ChargesController < ApplicationController
   def new
+    if user_signed_in?
+      @order = Order.create(user_id: current_user.id)
+
+      # Tranfer items from user to order
+      current_user.items.each do |item|
+        item.buyable = @order
+        item.save
+      end
+      @order.save
+
+    end
   end
 
   def create
