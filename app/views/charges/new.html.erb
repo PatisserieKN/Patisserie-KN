@@ -1,64 +1,51 @@
-<% @stripe_refresh = true %>
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-  </article>
-  <section class="slice-lg has-bg-cover bg-size-cover">
-    <div class="container">
-      <div class="row justify-content-center cols-xs-space">
-        <div class="col-lg-6">
-          <div class="form-card form-card--style-2 z-depth-2-top">
-            <div class="form-header text-center">
-              <div class="form-header-icon">
-                <i class="icon ion-ios-clipboard"></i>
-              </div>
+<section class="slice-lg has-bg-cover bg-size-cover">
+  <div class="container">
+    <div class="row justify-content-center cols-xs-space">
+      <div class="col-lg-6">
+        <div class="form-card form-card--style-2 z-depth-2-top">
+          <div class="form-header text-center">
+            <div class="form-header-icon">
+              <i class="icon ion-ios-clipboard"></i>
             </div>
-            <div class="form-body">
-              <div class="text-center px-2">
-                <h4 class="heading heading-4 strong-400 mb-4">Récapitulatif de la commande</h4>
-              </div>
+          </div>
+          <div class="form-body">
+            <div class="text-center px-2">
+              <h4 class="heading heading-4 strong-400 mb-4">Récapitulatif de la commande</h4>
+            </div>
+            <% current_user.items.each do |item| %>
               <div class="row">
-                <div class="col-md-12">
-                  <p align="center">Produit 1 : Prix</p>
+                <div class="col-md-6 product-name">
+                  <span class="d-block dc-product-name text-capitalize strong-600 mb-1">
+                    <%= item.product.name %>
+                  </span>
+                  <span class="personalization-police"><%= item.personalization %></span>
+                </div>
+                <div class="col-md-4 product-quantity">
+                  <span class="input-group input-group--style-2 pr-4">
+                    <%= item.quantity %> parts
+                  </span>
+                </div>
+                <div class="product-total">
+                  <span><%= number_to_currency item.price, unit: "€", separator: ",", format: "%n%u"  %></span>
                 </div>
               </div>
-
-              <div class="row">
-                  <div class="col-md-12">
-                      <p align="center">Produit 2 : Prix</p>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <p align="center">Produit 3 : Prix</p>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <p align="center">Produit 4 : Prix</p>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-12">
-                      <p align="center">Total : <%= @order.global_price %></p>
-                  </div>
-              </div>
-              <div align="center" class="mt-1 ">
+            <% end %>
+            <div class="row">
+              <span>Montant total : <%= number_to_currency @order.global_price, unit: "€", separator: ",", format: "%n%u"  %></span>
+            </div>
+            <div align="center" class="mt-1 ">
+              <%= form_tag charges_path do %>
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Patisserie KN"
-                  data-amount="500"
+                  data-amount="<%= @order.global_price %>"
                   data-locale="auto">
                 </script>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-<% end %>
+  </div>
+</section>
