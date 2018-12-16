@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PatisserieKn</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <link href="https://unpkg.com/ionicons@4.4.8/dist/css/ionicons.min.css" rel="stylesheet">
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+</head>
+<body>
+<% @stripe_refresh = true %>
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -5,14 +23,62 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
   </article>
+<section class="slice-lg has-bg-cover bg-size-cover">
+    <div class="container">
+        <div class="row justify-content-center cols-xs-space">
+            <div class="col-lg-6">
+                <div class="form-card form-card--style-2 z-depth-2-top">
+                    <div class="form-header text-center">
+                        <div class="form-header-icon">
+                            <i class="icon ion-ios-clipboard"></i>
+                        </div>
+                    </div>
+                    <div class="form-body">
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
+                        <div class="text-center px-2">
+                            <h4 class="heading heading-4 strong-400 mb-4">Récapitulatif de la commande</h4>
+                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p align="center">Produit 1 : Prix</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p align="center">Produit 2 : Prix</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p align="center">Produit 3 : Prix</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p align="center">Produit 4 : Prix</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p align="center">Total : prix.total</p>
+                                </div>
+                            </div>
+                            <div align="center" class="mt-1 ">
+                              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                data-description="Patisserie KN"
+                                data-amount="500"
+                                data-locale="auto">
+                              </script>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <% end %>
+</body>
+</html>
