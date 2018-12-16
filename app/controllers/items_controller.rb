@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    unless user_signed_in? && @item.user == current_user
+    unless user_signed_in? && @item.buyable == current_user
       flash[:danger] = 'Vous ne pouvez pas faire ça !'
       redirect_to root_path
     end
@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
       @item.price = @item.quantity * @item.product.price
       @item.comment = nil if @item.comment.blank?
       @item.personalization.blank? ? @item.personalization = nil : @item.price += 2.5
-      @item.user_id = current_user.id
+      @item.buyable_type = 'User'
+      @item.buyable_id = current_user.id
       if @item.save
         flash[:info] = 'Votre article a été ajouté au panier'
         redirect_to patisserie_path
@@ -47,7 +48,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if user_signed_in? && @item.user == current_user
+    if user_signed_in? && @item.buyable == current_user
       @item.update(item_params)
       @item.price = @item.quantity * @item.product.price
       @item.comment = nil if @item.comment.blank?
@@ -74,7 +75,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    if user_signed_in? && @item.user == current_user
+    if user_signed_in? && @item.buyable == current_user
       @item.destroy
       flash[:info] = 'Vous avez correctement supprimé ce produit de votre panier'
       redirect_back(fallback_location: items_path)

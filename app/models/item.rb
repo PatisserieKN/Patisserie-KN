@@ -14,8 +14,9 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :user
+  belongs_to :buyable, polymorphic: true
   belongs_to :product
+  
   validates_presence_of :quantity, :price
   validates_length_of :personalization, in: 3..60, allow_nil: true,
                       too_short: 'Votre message de personnalisation est trop court. Il doit contenir entre 3 et 60 caractères',
