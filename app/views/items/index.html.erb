@@ -72,7 +72,6 @@
                     </tr>
                   <% end %>
                   <tr>
-
                     <td colspan='5' class="subtotal-text">Montant total :</td>
                     <% subtotal = 0 %>
                     <% current_user.items.each do |item| %>
@@ -89,7 +88,7 @@
               <%= link_to "<i class='icon ion-ios-arrow-back'></i> Revenir à la boutique".html_safe, patisserie_path, class: "link link--style-3" %>
             </div>
             <div class="col-6 text-right">
-              <%= link_to "Procéder au paiement", '#', class: "btn btn-styled btn-base-1" %>
+              <%= link_to "Finaliser ma commande", '#', class: "btn btn-styled btn-base-1" %>
             </div>
           </div>
         </div>
