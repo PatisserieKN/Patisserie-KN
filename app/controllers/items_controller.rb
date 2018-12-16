@@ -24,8 +24,7 @@ class ItemsController < ApplicationController
       @item.price = @item.quantity * @item.product.price
       @item.comment = nil if @item.comment.blank?
       @item.personalization.blank? ? @item.personalization = nil : @item.price += 2.5
-      @item.buyable_type = 'User'
-      @item.buyable_id = current_user.id
+      @item.buyable = current_user
       if @item.save
         flash[:info] = 'Votre article a été ajouté au panier'
         redirect_to patisserie_path
