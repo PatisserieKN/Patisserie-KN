@@ -38,8 +38,10 @@
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Patisserie KN"
-                  data-amount="<%= @order.global_price %>"
-                  data-locale="auto">
+                  data-amount="<%= @order.global_price.to_i*100 %>"
+                  data-locale="fr"
+                  data-currency="EUR"
+                  data-label="Payer par CB">
                 </script>
               <% end %>
             </div>
