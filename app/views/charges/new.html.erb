@@ -1,3 +1,4 @@
+<% @stripe_refresh = true %>
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -5,14 +6,59 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Montant : <%= @order.global_price %></span>
-    </label>
   </article>
+  <section class="slice-lg has-bg-cover bg-size-cover">
+    <div class="container">
+      <div class="row justify-content-center cols-xs-space">
+        <div class="col-lg-6">
+          <div class="form-card form-card--style-2 z-depth-2-top">
+            <div class="form-header text-center">
+              <div class="form-header-icon">
+                <i class="icon ion-ios-clipboard"></i>
+              </div>
+            </div>
+            <div class="form-body">
+              <div class="text-center px-2">
+                <h4 class="heading heading-4 strong-400 mb-4">Récapitulatif de la commande</h4>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <p align="center">Produit 1 : Prix</p>
+                </div>
+              </div>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
+              <div class="row">
+                  <div class="col-md-12">
+                      <p align="center">Produit 2 : Prix</p>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <p align="center">Produit 3 : Prix</p>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <p align="center">Produit 4 : Prix</p>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <p align="center">Total : <%= @order.global_price %></p>
+                  </div>
+              </div>
+              <div align="center" class="mt-1 ">
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Patisserie KN"
+                  data-amount="500"
+                  data-locale="auto">
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <% end %>
