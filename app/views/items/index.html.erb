@@ -71,6 +71,15 @@
                       </td>
                     </tr>
                   <% end %>
+                  <tr>
+
+                    <td colspan='5' class="subtotal-text">Montant total :</td>
+                    <% subtotal = 0 %>
+                    <% current_user.items.each do |item| %>
+                      <% subtotal += item.price %>
+                    <% end %>
+                    <td colspan='1' class="subtotal-amount"><%= number_to_currency subtotal, unit: "€", separator: ",", format: "%n%u"  %></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
