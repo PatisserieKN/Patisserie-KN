@@ -50,7 +50,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										Si vous souhaitez personnaliser votre commande avec un message écrit en chocolat, vous pouvez remplir le champs ci dessous (facturé 2€50):
+										<%= f.label :personalization, 'Si vous souhaitez personnaliser votre commande avec un message écrit en chocolat, vous pouvez remplir le champs ci dessous (facturé 2€50):',class: "control-label" %>
 										<%= f.text_field :personalization, placeholder: "Joyeux Anniversaire Sarah !", class: "form-control form-control-lg" %>
 									</div>
 								</div>
@@ -60,7 +60,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<%= f.label :comment, 'Voulez vous ajouter un commentaire pour ce produit ?',class: "control-label" %><br />
+										<%= f.label :comment, 'Voulez vous ajouter un commentaire pour ce produit ?',class: "control-label" %>
 										<%= f.text_area :comment, class: "form-control form-control-lg" %>
 									</div>
 								</div>
