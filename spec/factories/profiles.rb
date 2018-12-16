@@ -13,9 +13,9 @@
 
 FactoryBot.define do
   factory :profile do
-    first_name { "MyFName" }
-    last_name { "MyLName" }
-    phone_number { "0123456789" }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    phone_number { Faker::Number.number(10) }
     association :user
   end
 end
