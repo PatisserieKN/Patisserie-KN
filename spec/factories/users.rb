@@ -20,9 +20,10 @@
 
 FactoryBot.define do
   factory :user do
-    email { "Mymail@test.com" }
-    password { "password" }
-    password_confirmation { "password" }
+  	password_faker = Faker::Internet.password(8)
+    email { Faker::Internet.email }
+    password { password_faker }
+    password_confirmation { password_faker }
     confirmed_at { Time.now }
   end
 end

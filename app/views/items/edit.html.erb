@@ -1,2 +1,64 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<section class="slice sct-color-1">
+	<div class="container">
+    <!-- Product gallery and Description -->
+    <div class="row">
+    	<div class="col-lg-5">
+        <div class="gallery-container">
+        	<% if @item.product.image.attached? %>
+        		<%= image_tag @item.product.image, size: "450", class: "img-responsive"%>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="px-2">
+          <!-- Product description -->
+          <div class="product-description-wrapper">
+            <!-- Product title -->
+            <h2 class="product-title heading heading-3 strong-400 text-capitalize">
+              <%= @item.product.name %>
+            </h2>
+            <hr>
+
+						<%= form_with model: @item do |f| %>
+							<div class="row d-flex justify-content-between align-items-center">
+								<div class="col-md-4 product-price py-1">
+										<%= number_to_currency @item.product.price, unit: "€", separator: ",", format: "%n%u /part"  %>
+								</div>
+						    <div class="col-md-4 form-group">
+									Nombre de part :
+									<%= f.select(:quantity, options_for_select([[6, 6], [8, 8], [10, 10]]), class: "form-control form-control-lg") %>
+							  </div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+                    <%= f.label :personalization, 'Voulez vous modifier le message écrit en chocolat ci dessous ? (facturé 2€50)',class: "control-label" %>
+										<%= f.text_field :personalization, placeholder: "Joyeux Anniversaire Sarah !", class: "form-control form-control-lg" %>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<%= f.label :comment, 'Voulez vous modifier votre commentaire pour ce produit ?',class: "control-label" %>
+										<%= f.text_area :comment, class: "form-control form-control-lg" %>
+									</div>
+								</div>
+							</div>
+
+	            <div class="row">
+                <!-- Add to cart button -->
+								<%= button_tag type: 'submit', class: "btn btn-styled btn-block btn-base-1 btn-icon-left" do %>
+					      	<i class="icon ion-ios-cart" aria-hidden="true"></i>Modifier mon produit
+								<% end %>
+	            </div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

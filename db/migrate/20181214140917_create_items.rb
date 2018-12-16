@@ -6,7 +6,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :quantity
       t.decimal :price
       t.text :comment
-      t.references :cart, foreign_key: true
 
       t.timestamps
     end

@@ -30,6 +30,7 @@ RSpec.describe Profile, type: :model do
 
   it { is_expected.to belong_to(:user) }
 
+    let(:profile) { create(:profile) }
   it 'is creatable' do
     expect{ create(:profile) }.to change(Profile, :count).by(1)
   end

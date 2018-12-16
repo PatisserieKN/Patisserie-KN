@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .background-perso-1 {
-  background-image: asset-url(wallpaper);
+  background-size: cover;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6993172268907564) 30%, rgba(255,255,255,0) 40%), asset-url(wallpaper);
 }
-
+.color-grey-logo{
+	color: rgba(58, 58, 58, 1) !important;
+}
 .personalization-police {
   font-size: .75rem;
   font-family: "Nunito", sans-serif;

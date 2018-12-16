@@ -10,13 +10,16 @@
 
 Rails.application.routes.draw do
 
+  get 'devis/new', to: 'quotation#new'
+  get 'devis/show', to: 'quotation#show'
   get '/patisserie', to: 'products#index'
   resources :products, except: :index
   resources :items
+  resources :charges, only: [:new, :create]
 
   root 'products#index'
-  get '/template1', to: 'static_pages#template1'
-  get '/template2', to: 'static_pages#template2'
+  get '/unavailable', to: 'static_pages#unavailable'
+
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' },
                      path: "client",

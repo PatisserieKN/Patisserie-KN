@@ -24,10 +24,6 @@ client.admin = false
 client.skip_confirmation!
 client.save!
 
-cart = Cart.new
-cart.user_id = User.last.id
-cart.save!
-
 20.times do
   Product.create( name: Faker::Food.fruits,
                   description: Faker::Food.description,

@@ -2,19 +2,12 @@
   <div class="container mask-container">
     <div class="row">
       <div class="col-md-6">
-        <h3 class="heading heading-1 strong-600 text-capitalize mb-1">
+        <h3 class="heading heading-1 strong-600 text-capitalize mb-1 color-grey-logo">
           <span>Mon panier</span>
         </h3>
-        <ol class="breadcrumb breadcrumb--style-2">
-          <li class="breadcrumb-item"><%= link_to "Accueil", root_path %></li>
-          <li class="breadcrumb-item"><%= link_to "Boutique", patisserie_path %></li>
-          <li class="breadcrumb-item"><a href="#">Paiement</a></li>
-        </ol>
+        <br>
         <!-- Fluid text paragraph -->
         <div class="pb-4 mt-4">
-          <p class="lead">
-            Il est frais mon gateau, il est frais ! :D Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, quae modi.
-          </p>
         </div>
       </div>
     </div>
@@ -35,7 +28,8 @@
                     <th class="product-name">Produit</th>
                     <th class="product-quanity d-none d-md-table-cell">Nombre de part</th>
                     <th class="product-total">Prix</th>
-                    <th class="product-remove"></th>
+                    <th class="product-edit">Modifier</th>
+                    <th class="product-remove">Supprimer</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,13 +54,24 @@
                         </div>
                       </td>
                       <td class="product-total">
-                        <span><%= item.price %> €</span>
+                        <span><%= number_to_currency item.price, unit: "€", separator: ",", format: "%n%u"  %></span>
+                      </td>
+                      <td class="product-edit">
+                        <%= link_to "Modifier".html_safe, edit_item_path(item) %>
                       </td>
                       <td class="product-remove">
-                        <%= link_to "<i class='icon ion-md-trash'></i>".html_safe, item_path(item), method: :delete %>
+                        <%= link_to "<i class='icon ion-md-trash'></i".html_safe, item_path(item), method: :delete %>
                       </td>
                     </tr>
                   <% end %>
+                  <tr>
+                    <td colspan='5' class="subtotal-text">Montant total :</td>
+                    <% subtotal = 0 %>
+                    <% current_user.items.each do |item| %>
+                      <% subtotal += item.price %>
+                    <% end %>
+                    <td colspan='1' class="subtotal-amount"><%= number_to_currency subtotal, unit: "€", separator: ",", format: "%n%u"  %></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -76,7 +81,7 @@
               <%= link_to "<i class='icon ion-ios-arrow-back'></i> Revenir à la boutique".html_safe, patisserie_path, class: "link link--style-3" %>
             </div>
             <div class="col-6 text-right">
-              <%= link_to "Procéder au paiement", '#', class: "btn btn-styled btn-base-1" %>
+              <%= link_to "Finaliser ma commande", new_charge_path, class: "btn btn-styled btn-base-1" %>
             </div>
           </div>
         </div>
@@ -84,7 +89,7 @@
         <div class="col-lg-7">
           <div class="text-center">
             <div class="d-block font-size-3 font-size-md-6 c-gray-light">
-              <i class="icon-hotel-restaurant-105"></i>
+              <i class="icon ion-ios-cart"></i>
             </div>
 
             <h2 class="heading heading-3 strong-600">Votre panier est vide.</h2>
