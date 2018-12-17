@@ -15,198 +15,230 @@
                     </a>
                   </h2>
                 </div>
-                <div class="col-lg-6 col-12"></div>
+                <div class="row align-items-center">
+                  <%= devise_error_messages! %>
+                </div>
               </div>
             </div>
 
-            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-              <a href="#" class="active">Settings</a>
-              <a href="#">Orders</a>
-              <a href="#">Cards</a>
-              <a href="#">Security</a>
-              <a href="#">Connections</a>
-            </div>
+            <div class="tabs tabs--style-2" role="tabpanel">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a href="#tabTwo-1" aria-controls="profil" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600">Profil</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a href="#tabTwo-2" aria-controls="commandes" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Commandes</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a href="#tabTwo-3" aria-controls="sécurité" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Sécurité</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tabTwo-1">
+                  <div class="tab-body">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                      <!-- General information -->
+                      <div class="card no-border bg-transparent">
+                        <div class="card-title px-0 pb-0 no-border">
+                          <h3 class="heading heading-6 strong-600">
+                            Information du profil
+                          </h3>
+                        </div>
+                        <%= f.fields_for :profile do |ff| %>
+                          <div class="card-body px-0">
+                            <div class="row">
+                              <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                  <%= ff.label :first_name, 'Prénom' %>
+                                  <%= ff.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control form-control-lg" %>
+                                </div>
+                              </div>
 
-            <!-- Account settings -->
+                              <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                  <%= ff.label :last_name, 'Nom de famille' %>
+                                  <%= ff.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control form-control-lg" %>
+                                </div>
+                              </div>
 
-            <div class="row">
-              <div class="col-lg-12">
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                  <%= devise_error_messages! %>
-
-                  <!-- General information -->
-                  <div class="card no-border bg-transparent">
-                    <div class="card-title px-0 pb-0 no-border">
-                      <h3 class="heading heading-6 strong-600">
-                        Information du profil
-                      </h3>
-                    </div>
-                    <%= f.fields_for :profile do |ff| %>
-                      <div class="card-body px-0">
-                        <div class="row">
-                          <div class="col-md-6 col-lg-4">
-                            <div class="form-group">
-                              <%= ff.label :first_name, 'Prénom' %>
-                              <%= ff.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control form-control-lg" %>
+                              <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                  <%= ff.label :phone_number, 'Numéro de téléphone' %>
+                                  <%= ff.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control form-control-lg" %>
+                                </div>
+                              </div>
                             </div>
                           </div>
+                        <% end %>
+                      </div>
 
-                          <div class="col-md-6 col-lg-4">
-                            <div class="form-group">
-                              <%= ff.label :last_name, 'Nom de famille' %>
-                              <%= ff.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control form-control-lg" %>
-                            </div>
-                          </div>
+                      <hr class="mt-0 mb-0">
+                      <!-- Adress info -->
+                      <div class="card no-border bg-transparent">
+                        <div class="card-title px-0 pb-0 no-border">
+                          <h3 class="heading heading-6 strong-600">
+                            Votre Adresse
+                          </h3>
+                          <%= f.fields_for :adress do |ff| %>
 
-                          <div class="col-md-6 col-lg-4">
-                            <div class="form-group">
-                              <%= ff.label :phone_number, 'Numéro de téléphone' %>
-                              <%= ff.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control form-control-lg" %>
+                            <div class="field">
+                              <%= ff.label 'Adresse complète' %>
+                              <%= ff.text_field :full_address, placeholder: "Entrez votre adresse", id: :autocomplete_address, autocomplete: "full_address", class: "form-control form-control-lg" %>
                             </div>
+
+                            <div class="row">
+                              <div class="field col-2">
+                                <%= ff.label 'N° de voie' %>
+                                <%= ff.number_field :street_number, id: :street_number, autocomplete: "street_number", class: "form-control form-control-lg" %>
+                              </div>
+
+                              <div class="field col-10">
+                                <%= ff.label 'Nom de la voie' %>
+                                <%= ff.text_field :route, id: :route, autocomplete: "route", class: "form-control form-control-lg" %>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="field col-2">
+                                <%= ff.label 'Code postal' %>
+                                <%= ff.number_field :postal_code, id: :postal_code, autocomplete: "postal_code", class: "form-control form-control-lg" %>
+                              </div>
+
+                              <div class="field col-10">
+                                <%= ff.label 'Ville' %>
+                                <%= ff.text_field :locality, id: :locality, autocomplete: "locality", class: "form-control form-control-lg" %>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="field col-6">
+                                <%= ff.label 'Région' %>
+                                <%= ff.text_field :administrative_area_level_1, id: :administrative_area_level_1, autocomplete: "administrative_area_level_1", class: "form-control form-control-lg" %>
+                              </div>
+
+                              <div class="field col-6">
+                                <%= ff.label 'Pays' %>
+                                <%= ff.text_field :country, id: :country, autocomplete: "country", class: "form-control form-control-lg" %><br />
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+
+                      <hr class="mt-0 mb-0">
+
+                      <!-- Change password -->
+                      <div class="card no-border bg-transparent">
+                        <div class="card-body px-0">
+                          <div class="text-right">
+                            <p class="mt-1 mb-0">
+                              Tous les champs du profil et de l'adresse doivent être remplis
+                            </p>
+
+                            <%= f.submit "Mettre à jour mon profil", class: "btn btn-base-1" %>
                           </div>
                         </div>
                       </div>
                     <% end %>
                   </div>
-
-                  <hr class="mt-0 mb-0">
-                  <!-- Adress info -->
-                  <div class="card no-border bg-transparent">
-                    <div class="card-title px-0 pb-0 no-border">
-                      <h3 class="heading heading-6 strong-600">
-                        Votre Adresse
-                      </h3>
-                      <%= f.fields_for :adress do |ff| %>
-
-                        <div class="field">
-                          <%= ff.label 'Adresse complète' %>
-                          <%= ff.text_field :full_address, placeholder: "Entrez votre adresse", id: :autocomplete_address, autocomplete: "full_address", class: "form-control form-control-lg" %>
-                        </div>
-
-                        <div class="row">
-                          <div class="field col-2">
-                            <%= ff.label 'N° de voie' %>
-                            <%= ff.number_field :street_number, id: :street_number, autocomplete: "street_number", class: "form-control form-control-lg" %>
-                          </div>
-
-                          <div class="field col-10">
-                            <%= ff.label 'Nom de la voie' %>
-                            <%= ff.text_field :route, id: :route, autocomplete: "route", class: "form-control form-control-lg" %>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="field col-2">
-                            <%= ff.label 'Code postal' %>
-                            <%= ff.number_field :postal_code, id: :postal_code, autocomplete: "postal_code", class: "form-control form-control-lg" %>
-                          </div>
-
-                          <div class="field col-10">
-                            <%= ff.label 'Ville' %>
-                            <%= ff.text_field :locality, id: :locality, autocomplete: "locality", class: "form-control form-control-lg" %>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="field col-6">
-                            <%= ff.label 'Région' %>
-                            <%= ff.text_field :administrative_area_level_1, id: :administrative_area_level_1, autocomplete: "administrative_area_level_1", class: "form-control form-control-lg" %>
-                          </div>
-
-                          <div class="field col-6">
-                            <%= ff.label 'Pays' %>
-                            <%= ff.text_field :country, id: :country, autocomplete: "country", class: "form-control form-control-lg" %><br />
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-
-                  <hr class="mt-0 mb-0">
-
-                  <!-- Account info -->
-                  <div class="card no-border bg-transparent">
-                    <div class="card-title px-0 pb-0 no-border">
-                      <h3 class="heading heading-6 strong-600">
-                        Information du compte
-                      </h3>
-                      <div class="mt-1 mb-0 field">
-                        Votre email actuel : <%= @user.email %><br />
-
-                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                          <div>
-                            Attention, votre adresse email n'a pas été confirmé.<br />
-                            Cliquez <%= link_to "ici", new_confirmation_path(resource_name) %> pour recevoir à nouveau le mail de confirmation.<br />
-                          </div>
-                        <% end %>
-                        Vous pouvez mettre à jour votre email ci dessous (votre mot de passe sera nécessaire).
-                      </div>
-                    </div>
-                    <div class="card-body px-0">
-                      <div class="row align-items-center">
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <%= f.email_field :email, placeholder: "Votre nouvel email", class: "form-control form-control-lg" %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr class="mt-0 mb-0">
-
-                  <!-- Change password -->
-                  <div class="card no-border bg-transparent">
-                    <div class="card-title px-0 pb-0 no-border">
-                      <h3 class="heading heading-6 strong-600">
-                        Changer de mot de passe
-                      </h3>
-                    </div>
-                    <div class="card-body px-0">
-                      <div class="row">
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <%= f.label :current_password, 'Mot de passe actuel'%>
-                            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control form-control-lg" %>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <%= f.label :password, 'Nouveau mot de passe' %>
-                            <%= f.password_field :password, class: "form-control form-control-lg"%>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <%= f.label :password_confirmation, 'Confirmer le nouveau mot de passe' %>
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="text-right">
-                        <%= f.submit "Mettre à jour mon compte", class: "btn btn-base-1" %>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-
-                <hr class="mt-0 mb-0">
-
-                <div class="card no-border bg-transparent">
-                  <div class="card-title px-0 pb-0 no-border">
-                    <h3 class="heading heading-6 strong-600">
-                      Supprimer mon compte
-                    </h3>
-
-                    <div class="card-body px-0">
-                      <div class="text-right">
-                        <p class="mt-1 mb-0">
-                          Attention, cette action est irreversible
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tabTwo-2">
+                  <div class="tab-body">
+                        <p>
+                            Viam sumi mo id erit. Objectioni mo de necessario crediderim. Imo terra vox alios aut lor quasi. Vim quaero aut videri pendam plures duo. Extat neque arcte re ad etiam. Ego infiniti reperero mutuatur formalem sed scribere nec vel profecto.
                         </p>
-                        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete, class: "btn btn-base-1" %>
+                        <p>
+                            Detractis detrahere concipere ac ut et inveniant to. Im perductae ut at ecclesiae assentiri eo. Ea ergo ausi ac otii suas. Utrum me sequi falsi ut atque. Existeret conformes his rei scientiis. Virorum corpora hac iis brachia
+                        </p>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tabTwo-3">
+                  <div class="tab-body">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                      <!-- Account info -->
+                      <div class="card no-border bg-transparent">
+                        <div class="card-title px-0 pb-0 no-border">
+                          <h3 class="heading heading-6 strong-600">
+                            Information du compte
+                          </h3>
+                          <div class="mt-1 mb-0 field">
+                            Votre email actuel : <%= @user.email %><br />
+
+                            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                              <div>
+                                Attention, votre adresse email n'a pas été confirmé.<br />
+                                Cliquez <%= link_to "ici", new_confirmation_path(resource_name) %> pour recevoir à nouveau le mail de confirmation.<br />
+                              </div>
+                            <% end %>
+                            Vous pouvez mettre à jour votre email ci dessous (votre mot de passe sera nécessaire).
+                          </div>
+                        </div>
+                        <div class="card-body px-0">
+                          <div class="row align-items-center">
+                            <div class="col-md-6 col-lg-4">
+                              <div class="form-group">
+                                <%= f.email_field :email, placeholder: "Votre nouvel email", class: "form-control form-control-lg" %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr class="mt-0 mb-0">
+
+                      <!-- Change password -->
+                      <div class="card no-border bg-transparent">
+                        <div class="card-title px-0 pb-0 no-border">
+                          <h3 class="heading heading-6 strong-600">
+                            Changer de mot de passe
+                          </h3>
+                        </div>
+                        <div class="card-body px-0">
+                          <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                              <div class="form-group">
+                                <%= f.label :current_password, 'Mot de passe actuel'%>
+                                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control form-control-lg" %>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                              <div class="form-group">
+                                <%= f.label :password, 'Nouveau mot de passe' %>
+                                <%= f.password_field :password, class: "form-control form-control-lg"%>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                              <div class="form-group">
+                                <%= f.label :password_confirmation, 'Confirmer le nouveau mot de passe' %>
+                                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="text-right">
+                            <%= f.submit "Mettre à jour mon compte", class: "btn btn-base-1" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    <hr class="mt-0 mb-0">
+
+                    <div class="card no-border bg-transparent">
+                      <div class="card-title px-0 pb-0 no-border">
+                        <h3 class="heading heading-6 strong-600">
+                          Supprimer mon compte
+                        </h3>
+
+                        <div class="card-body px-0">
+                          <div class="text-right">
+                            <p class="mt-1 mb-0">
+                              Attention, cette action est irreversible
+                            </p>
+                            <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete, class: "btn btn-base-1" %>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
