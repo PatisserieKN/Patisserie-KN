@@ -32,7 +32,8 @@ class User < ApplicationRecord
   has_one :adress, dependent: :destroy
   accepts_nested_attributes_for :adress
 
-  has_many :items, as: :buyable
+  has_many :items, as: :buyable, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

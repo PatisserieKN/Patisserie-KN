@@ -10,7 +10,9 @@
 #  global_price :decimal(, )
 #
 
-class Order < ApplicationRecord
-  belongs_to :user
-  has_many :items, as: :buyable
+FactoryBot.define do
+  factory :order do
+    association :user
+    paid { false }
+  end
 end

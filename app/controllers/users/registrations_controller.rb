@@ -60,8 +60,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    if params[:password].blank? && params[:password_confirmation].blank? && params[:email] == resource.email
-      params.delete(:current_password)
+    # Dans le formulaire profil, pas besoin du password
+    if params[:current_password].nil? # current_password ne vaut nil que si on est dans le 1er formulaire (profil)
       resource.update_without_password(params)
     else
       resource.update_with_password(params)

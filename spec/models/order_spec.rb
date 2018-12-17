@@ -10,7 +10,14 @@
 #  global_price :decimal(, )
 #
 
-class Order < ApplicationRecord
-  belongs_to :user
-  has_many :items, as: :buyable
+require 'rails_helper'
+
+RSpec.describe Order, type: :model do
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:items) }
+
+  let(:order) { create(:order) }
+  it 'is creatable' do
+    expect{ order }.to change(Order, :count).by(1)
+  end
 end

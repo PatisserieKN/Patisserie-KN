@@ -5,7 +5,7 @@
 #  id           :bigint(8)        not null, primary key
 #  first_name   :string
 #  last_name    :string
-#  phone_number :integer
+#  phone_number :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint(8)
@@ -30,7 +30,7 @@ RSpec.describe Profile, type: :model do
 
   it { is_expected.to belong_to(:user) }
 
-    let(:profile) { create(:profile) }
+  let(:profile) { create(:profile) }
   it 'is creatable' do
     expect{ create(:profile) }.to change(Profile, :count).by(1)
   end

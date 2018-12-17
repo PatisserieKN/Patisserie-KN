@@ -41,7 +41,7 @@ gem 'stripe'
 gem "relaxed-rubocop"
 gem "rubocop-rails"
 
-#Google autocomplete
+# Google autocomplete
 gem "geocoder"
 gem 'jquery-rails'
 

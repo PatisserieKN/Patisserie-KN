@@ -1,66 +1,77 @@
 <section class="slice-lg has-bg-cover bg-size-cover">
-    <div class="container">
-        <div class="row justify-content-center cols-xs-space">
-            <div class="col-lg-6">
-                <div class="form-card form-card--style-2 z-depth-2-top">
-                    <div class="form-header text-center">
-                        <div class="form-header-icon">
-                            <i class="icon ion-ios-clipboard"></i>
-                        </div>
-                    </div>
-                    <div class="form-body">
-
-                        <div class="text-center px-2">
-                            <h4 class="heading heading-4 strong-400 mb-4">Demande de devis</h4>
-                        </div>
-						<%= form_tag("show", method: "get") do %>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <%= label_tag(:full_name, "Nom complet", class: "control-label") %>
-  										<%= text_field_tag :full_name, "#{current_user.profile.first_name} #{current_user.profile.last_name}", class: "form-control form-control-lg" %>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <%= label_tag(:phone_number, "Numéro de téléphone", class: "control-label") %>
-										<%= text_field_tag :phone_number, "#{current_user.profile.phone_number}", class: "form-control form-control-lg" %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group has-feedback">
-                                        <%= label_tag(:email, "Adresse email", class: "control-label") %>
-										<%= text_field_tag :email, "#{current_user.email}", class: "form-control form-control-lg" %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group has-feedback">
-										<%= label_tag(:subject, "Objet", class: "control-label") %>
-										<%= text_field_tag :subject, "",class: "form-control form-control-lg" %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group has-feedback">
-										<%= label_tag(:message, "Message", class: "control-label") %>
-										<%= text_area_tag :message, "",class: "form-control form-control-lg" %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-1 ">
-                            	<%= submit_tag("Envoyer", class: "btn btn-styled btn-block btn-base-1 mt-4") %>
-                        <% end %>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center cols-xs-space">
+      <div class="col-lg-6">
+        <div class="form-card form-card--style-2 z-depth-2-top">
+          <div class="form-header text-center">
+            <div class="form-header-icon">
+              <i class="icon ion-ios-clipboard"></i>
             </div>
+          </div>
+          <div class="form-body">
+            <div class="text-center px-2">
+              <h4 class="heading heading-4 strong-400 mb-4">Demande de devis</h4>
+            </div>
+            <%= form_tag("show", method: "get") do %>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag(:full_name, "Nom complet", class: "control-label") %>
+                    <% if user_signed_in? && current_user.profile %>
+					            <%= text_field_tag :full_name, "#{current_user.profile.first_name} #{current_user.profile.last_name}", class: "form-control form-control-lg" %>
+                    <% else %>
+                      <%= text_field_tag :full_name, "", class: "form-control form-control-lg" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag(:phone_number, "Numéro de téléphone", class: "control-label") %>
+                    <% if user_signed_in? && current_user.profile %>
+            				  <%= text_field_tag :phone_number, "#{current_user.profile.phone_number}", class: "form-control form-control-lg" %>
+                    <% else %>
+                      <%= text_field_tag :phone_number, "", class: "form-control form-control-lg" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group has-feedback">
+                    <%= label_tag(:email, "Adresse email", class: "control-label") %>
+                    <% if user_signed_in? %>
+                      <%= text_field_tag :email, "#{current_user.email}", class: "form-control form-control-lg" %>
+                    <% else %>
+                      <%= text_field_tag :email, "", class: "form-control form-control-lg" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group has-feedback">
+            				<%= label_tag(:subject, "Objet", class: "control-label") %>
+				            <%= text_field_tag :subject, "",class: "form-control form-control-lg" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group has-feedback">
+              			<%= label_tag(:message, "Message", class: "control-label") %>
+				            <%= text_area_tag :message, "",class: "form-control form-control-lg" %>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-1 ">
+              	<%= submit_tag("Envoyer", class: "btn btn-styled btn-block btn-base-1 mt-4") %>
+              </div>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
