@@ -142,16 +142,46 @@
                     <% end %>
                   </div>
                 </div>
+
                 <div role="tabpanel" class="tab-pane" id="tabTwo-2">
                   <div class="tab-body">
-                        <p>
-                            Viam sumi mo id erit. Objectioni mo de necessario crediderim. Imo terra vox alios aut lor quasi. Vim quaero aut videri pendam plures duo. Extat neque arcte re ad etiam. Ego infiniti reperero mutuatur formalem sed scribere nec vel profecto.
-                        </p>
-                        <p>
-                            Detractis detrahere concipere ac ut et inveniant to. Im perductae ut at ecclesiae assentiri eo. Ea ergo ausi ac otii suas. Utrum me sequi falsi ut atque. Existeret conformes his rei scientiis. Virorum corpora hac iis brachia
-                        </p>
+                    <table class="table-cart">
+                      <thead>
+                        <tr>
+                          <th class="product-date">Date</th>
+                          <th class="product-price">Prix</th>
+                          <th class="product-paid">Payé ?</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% current_user.orders.each do |order| %>
+                          <tr class="cart-item">
+                            <td class="product-date">
+                              <div class="text-capitalize strong-600 mb-1">
+                                <span><%= order.created_at %></span>
+                              </div>
+                            </td>
+                            <td class="product-quantity d-none d-md-table-cell">
+                              <div class="input-group input-group--style-2 pr-4">
+                                <span><%= number_to_currency order.global_price, unit: "€", separator: ",", format: "%n%u"  %></span>
+                              </div>
+                            </td>
+                            <td class="product-quantity d-none d-md-table-cell">
+                              <div class="input-group input-group--style-2 pr-4">
+                                <% if order.paid %>
+                                  <i class="fas fa-check"></i>
+                                <% else %>
+                                  <i class="fas fa-times"></i>
+                                <% end %>
+                              </div>
+                            </td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
+
                 <div role="tabpanel" class="tab-pane" id="tabTwo-3">
                   <div class="tab-body">
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
