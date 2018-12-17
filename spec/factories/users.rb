@@ -20,7 +20,7 @@
 
 FactoryBot.define do
   factory :user do
-  	password_faker = Faker::Internet.password(8)
+    password_faker = Faker::Internet.password(8)
     email { Faker::Internet.email }
     password { password_faker }
     password_confirmation { password_faker }

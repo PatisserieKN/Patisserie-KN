@@ -22,12 +22,12 @@ RSpec.describe Adress, type: :model do
   it { is_expected.to validate_presence_of(:street_number) }
   it { is_expected.to validate_presence_of(:route) }
   it { is_expected.to validate_presence_of(:locality) }
-  it { is_expected.to validate_presence_of(:administrative_area_level_1)}
-  it { is_expected.to validate_presence_of(:country)}
-  it { is_expected.to validate_presence_of(:postal_code)}
-  it { is_expected.to validate_presence_of(:full_address)}
+  it { is_expected.to validate_presence_of(:administrative_area_level_1) }
+  it { is_expected.to validate_presence_of(:country) }
+  it { is_expected.to validate_presence_of(:postal_code) }
+  it { is_expected.to validate_presence_of(:full_address) }
 
   it 'is creatable' do
-   expect{ create(:adress) }.to change(Adress, :count).by(1)
+    expect{ create(:adress) }.to change(Adress, :count).by(1)
   end
 end

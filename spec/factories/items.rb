@@ -3,19 +3,20 @@
 # Table name: items
 #
 #  id              :bigint(8)        not null, primary key
-#  title           :string
 #  personalization :string
 #  quantity        :integer
 #  price           :decimal(, )
 #  comment         :text
-#  cart_id         :bigint(8)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  product_id      :bigint(8)
+#  buyable_type    :string
+#  buyable_id      :bigint(8)
 #
 
 FactoryBot.define do
   factory :item do
-    association :user
+    buyable { |a| a.association(:user) }
     association :product
     personalization { Faker::Lorem.sentence }
     quantity { Faker::Number.digit }
