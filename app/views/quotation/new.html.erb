@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <%= label_tag(:full_name, "Nom complet", class: "control-label") %>
-                    <% if user_signed_in? %>
+                    <% if user_signed_in? && current_user.profile %>
 					            <%= text_field_tag :full_name, "#{current_user.profile.first_name} #{current_user.profile.last_name}", class: "form-control form-control-lg" %>
                     <% else %>
                       <%= text_field_tag :full_name, "", class: "form-control form-control-lg" %>
@@ -29,7 +29,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <%= label_tag(:phone_number, "Numéro de téléphone", class: "control-label") %>
-                    <% if user_signed_in? %>
+                    <% if user_signed_in? && current_user.profile %>
             				  <%= text_field_tag :phone_number, "#{current_user.profile.phone_number}", class: "form-control form-control-lg" %>
                     <% else %>
                       <%= text_field_tag :phone_number, "", class: "form-control form-control-lg" %>
