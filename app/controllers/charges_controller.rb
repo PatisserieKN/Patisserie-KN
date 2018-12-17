@@ -18,19 +18,18 @@ class ChargesController < ApplicationController
     end
 
     customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @order.global_price.to_i*100,
-      :description => 'Patisserie KN',
-      :currency    => 'eur'
+    Stripe::Charge.create(
+      customer: customer.id,
+      amount: @order.global_price.to_i * 100,
+      description: 'Patisserie KN',
+      currency: 'eur'
     )
-
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
 
     flash[:succes] = "Votre commande a bien été prise en compte. Vous pouvez la retrouver dans votre profil"
     redirect_to new_charge_path

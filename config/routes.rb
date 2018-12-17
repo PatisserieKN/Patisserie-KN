@@ -9,13 +9,12 @@
 #      rails_direct_uploads POST /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-
   get 'devis/new', to: 'quotation#new'
   get 'devis/show', to: 'quotation#show'
   get '/patisserie', to: 'products#index'
   resources :products, except: :index
   resources :items
-  resources :charges, only: [:new, :create]
+  resources :charges, only: %i[new create]
 
   root 'products#index'
   get '/unavailable', to: 'static_pages#unavailable'

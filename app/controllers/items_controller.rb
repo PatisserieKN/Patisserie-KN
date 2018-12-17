@@ -1,12 +1,9 @@
 class ItemsController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
-  def new
-  end
+  def new; end
 
   def edit
     @item = Item.find(params[:id])
@@ -86,7 +83,7 @@ class ItemsController < ApplicationController
 
   private
 
-    def item_params
-      params.require(:item).permit(:personalization, :quantity, :comment)
-    end
+  def item_params
+    params.require(:item).permit(:personalization, :quantity, :comment)
+  end
 end
