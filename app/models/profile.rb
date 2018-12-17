@@ -5,7 +5,7 @@
 #  id           :bigint(8)        not null, primary key
 #  first_name   :string
 #  last_name    :string
-#  phone_number :integer
+#  phone_number :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint(8)
