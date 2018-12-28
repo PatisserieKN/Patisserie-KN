@@ -7,9 +7,9 @@
 <ul>
 	<li>De nombreuses API.</li>
 	<li>Différents CRUD côté client ainsi qu'administrateur.</li>
-	<li>L'administrateur peut créer des produits simplement, et l'utilisateur peut les achetés tout aussi simplement.</li>
+	<li>L'administrateur peut créer des produits simplement, et l'utilisateur peut les acheter tout aussi simplement.</li>
 	<li>L'utilisateur peut faire une demande de devis simple, il recevra une réponse par email.</li>
-	<li>Un mailer est branché un peut partout sur le site afin d'informer et de faire la communication du patissier.</li>
+	<li>Un mailer est branché un peu partout sur le site afin d'informer et de faire la communication du patissier.</li>
 </ul>
 <hr>
 <h3 align="center">Quels outils avez-vous utilisés ⁉️</h3>
